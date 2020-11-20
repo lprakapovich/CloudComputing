@@ -1,14 +1,20 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+import Auth from '@aws-amplify/auth';
+import AWSConfig from './aws-exports';
+
+import { API } from 'aws-amplify';
+API.configure(AWSConfig);
+
+Auth.configure(AWSConfig);
+
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
 }
-
-// changes to test deployment
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
