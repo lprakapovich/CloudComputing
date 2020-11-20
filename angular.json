@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "cloudchat-app"
+  "defaultProject": "cloudchat-app",
+  "cli": {
+    "analytics": false
+  }
 }
