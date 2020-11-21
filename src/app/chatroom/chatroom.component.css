@@ -56,5 +56,5 @@ body {
   border-bottom-left-radius: 0;
 }
 .message-incoming:only-child {
-  border-radius: 10px;
+  border-radius: 15px;
 }

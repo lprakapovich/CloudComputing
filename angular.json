@@ -13,6 +13,24 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@aws-amplify/core",
+              "buffer",
+              "js-cookie",
+              "uuid",
+              "ulid",
+              "lodash/isEqual",
+              "lodash/isEmpty",
+              "lodash/get",
+              "zen-observable",
+              "axios",
+              "@aws-crypto/crc32",
+              "fast-xml-parser",
+              "@aws-crypto/sha256-browser",
+              "crypto-js/lib-typedarrays",
+              "crypto-js/hmac-sha256",
+              "isomorphic-unfetch"
+            ],
             "outputPath": "dist/cloudchat-app",
             "index": "src/index.html",
             "main": "src/main.ts",
