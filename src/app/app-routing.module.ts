@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ChatroomComponent} from './chatroom/chatroom.component';
+import {ChatroomComponent} from './components/chatroom/chatroom.component';
 
 const routes: Routes = [
   {
-    path: 'chatroom', component: ChatroomComponent
+    path: 'components/chatroom', component: ChatroomComponent
   }
   ];
 
