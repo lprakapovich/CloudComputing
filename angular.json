@@ -29,7 +29,8 @@
               "@aws-crypto/sha256-browser",
               "crypto-js/lib-typedarrays",
               "crypto-js/hmac-sha256",
-              "isomorphic-unfetch"
+              "isomorphic-unfetch",
+              "@aws-crypto/sha256-js"
             ],
             "outputPath": "dist/cloudchat-app",
             "index": "src/index.html",
