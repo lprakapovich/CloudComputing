@@ -11,13 +11,19 @@ export class AppComponent implements OnInit {
   isAuthenticated: boolean;
 
   constructor(
-    private authService: AuthService
-  ) {
-  }
+    private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.isAuthenticated().then(isAuth => {
       this.isAuthenticated = isAuth;
     });
   }
+
+  signOut(): void {
+    this.authService.signOut().then( () => {
+      // amplify redirects to login page
+      // console.log('User is logged out');
+    });
+  }
+
 }

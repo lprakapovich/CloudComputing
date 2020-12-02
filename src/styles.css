@@ -1,4 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@500&family=Josefin+Sans&display=swap');
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  margin: 0;
+  padding: 0;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #303841;
+  --bg-secondary: #2f2f3c;
+  --bg-primary-hover: #3a444f;
+}

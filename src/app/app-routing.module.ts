@@ -1,11 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {ChatroomComponent} from './components/chatroom/chatroom.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ChatroomComponent} from './components/chats/chatroom/chatroom.component';
+import {ContactListComponent} from './components/contacts/contact-list/contact-list.component';
+import {SettingsComponent} from './components/settings/settings.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
-  {
-    path: 'components/chatroom', component: ChatroomComponent
-  }
+  { path: 'chatroom', component: ChatroomComponent },
+  { path: 'user-contacts', component: ContactListComponent },
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'user-settings', component: SettingsComponent },
   ];
 
 @NgModule({
