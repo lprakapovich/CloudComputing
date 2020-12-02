@@ -10,8 +10,7 @@ export class AppComponent implements OnInit {
   title = 'cloudchat-app';
   isAuthenticated: boolean;
 
-  constructor(
-    private authService: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.isAuthenticated().then(isAuth => {
@@ -20,10 +19,6 @@ export class AppComponent implements OnInit {
   }
 
   signOut(): void {
-    this.authService.signOut().then( () => {
-      // amplify redirects to login page
-      // console.log('User is logged out');
-    });
+    this.authService.signOut();
   }
-
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 
-
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
@@ -17,5 +16,4 @@ export class NavigationBarComponent implements OnInit {
   signOut(): void {
     this.signOutEvent.emit();
   }
-
 }

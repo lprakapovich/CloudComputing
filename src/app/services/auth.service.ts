@@ -38,7 +38,7 @@ export class AuthService {
     return isAuth;
   }
 
-  async signOut(): Promise<any> {
-    return await Auth.signOut({global: true});
+  async signOut(): Promise<void> {
+     await Auth.signOut({global: true});
   }
 }
