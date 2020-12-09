@@ -8,6 +8,11 @@ body {
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
   --bg-primary: #303841;
+  --bg-primary-light: #46525f;
+
   --bg-secondary: #2f2f3c;
   --bg-primary-hover: #3a444f;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

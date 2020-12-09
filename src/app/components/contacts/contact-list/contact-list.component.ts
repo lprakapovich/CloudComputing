@@ -12,4 +12,7 @@ export class ContactListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAddContact(): void {
+    // angular material pop up to add a new user
+  }
 }

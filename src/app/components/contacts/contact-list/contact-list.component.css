@@ -1,11 +1,44 @@
 @media only screen and (min-width: 600px) {
-  p {
+  .main-container {
     margin-left: 5rem;
+  }
+
+  .contacts-container {
+    width: 25rem;
+    height: 100%;
+    /*background: var(--bg-primary-light);*/
+    position: fixed;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  p {
+  .main-container {
     margin-left: 0;
   }
+}
+
+.contacts-container {
+  margin: 2rem;
+}
+.contacts-header {
+  display: flex;
+  flex-direction: row;
+}
+
+#add-contact {
+  margin-left: auto;
+}
+.contacts-header span {
+  margin-left: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  /*color: var(--text-secondary);*/
+  color: var(--bg-secondary);
 }
