@@ -1,0 +1,60 @@
+@media only screen and (min-width: 600px) {
+  .main-container {
+    margin-left: 5rem;
+  }
+
+  .chats-container {
+    width: 25rem;
+    height: 100%;
+    position: fixed;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    margin-left: 0;
+  }
+}
+
+.chats-container {
+  margin: 2rem;
+}
+
+.chats-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.chats-header span {
+  margin-left: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  color: var(--bg-secondary);
+}
+
+.buttonReset {
+  background-color: #deafaf;
+}
+
+.buttonSet {
+  background-color: #b5b0d9;
+}
+
+.buttonGroup {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.buttonDivider {
+  width: 1rem;
+  height: auto;
+  display: inline-block;
+}
+
