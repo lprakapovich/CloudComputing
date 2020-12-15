@@ -48,6 +48,7 @@
 }
 
 .buttonGroup {
+  float: right;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -56,5 +57,18 @@
   width: 1rem;
   height: auto;
   display: inline-block;
+}
+
+.datePicker {
+  float: left;
+  height: 3rem;
+}
+
+.chat-list{
+  float: left;
+  width: 25rem;
+  height:40rem;
+  overflow: hidden;
+  overflow-y:scroll;
 }
 

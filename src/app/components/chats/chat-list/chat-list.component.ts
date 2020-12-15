@@ -10,7 +10,7 @@ import {Component, OnInit} from '@angular/core';
 export class ChatListComponent implements OnInit {
   fromDate: Date;
   toDate: Date;
-  startDate = new Date(2020, 12, 1);
+  startDate = new Date(2020, 1, 1);
   constructor() {
   }
 
@@ -28,5 +28,6 @@ export class ChatListComponent implements OnInit {
   }
 
   // for now we store and reset the dates
+  // clearing the dates in the calendar view should be added
 
 }

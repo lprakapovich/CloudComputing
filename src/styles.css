@@ -3,6 +3,8 @@
 html, body { height: 100%; }
 
 body {
+  width: auto;
+  height: auto;
   margin: 0;
   padding: 0;
   --text-primary: #b6b6b6;

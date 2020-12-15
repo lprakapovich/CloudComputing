@@ -2,12 +2,12 @@
   <div class="chats-container">
 
     <div class="chats-header">
-      <h2> Conversations </h2>
+      <h2>Conversations </h2>
     </div>
 
     <form class="chats-form">
-      <mat-form-field class="full-width">
-        <mat-label>Select Time Period</mat-label>
+      <mat-form-field class="datePicker">
+        <mat-label>Select time period</mat-label>
         <mat-date-range-input [rangePicker]="picker">
           <input #fromInput matStartDate matInput placeholder="From">
           <input #toInput matEndDate matInput placeholder="To">
@@ -23,9 +23,10 @@
       <button class="buttonReset" mat-raised-button (click)="resetDates(fromInput, toInput)">Reset</button>
     </div>
 
+    <div class="divider"></div>
 
     <div class="chat-list">
-      <mat-nav-list *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+      <mat-nav-list *ngFor="let i of [1, 2, 3, 4, 5, 6]">
         <app-chat-list-item></app-chat-list-item>
       </mat-nav-list>
     </div>
