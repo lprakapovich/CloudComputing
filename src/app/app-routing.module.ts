@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'user-contacts', component: ContactListComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'user-settings', component: SettingsComponent },
+  { path: 'chatroom', component: ChatroomComponent },
   ];
 
 @NgModule({
