@@ -23,6 +23,7 @@ import { ChatListItemComponent } from './components/chats/chat-list-item/chat-li
 import { ContactListItemComponent } from './components/contacts/contact-list-item/contact-list-item.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { InitChatComponent } from './init-chat/init-chat.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { MatCardModule } from '@angular/material/card';
     ChatListItemComponent,
     ContactListComponent,
     ContactListItemComponent,
+    InitChatComponent,
   ],
   imports: [
     BrowserModule,

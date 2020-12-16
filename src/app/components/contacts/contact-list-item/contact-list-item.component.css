@@ -1,0 +1,15 @@
+.btn-open-chat {
+  color: #deafaf;
+  text-decoration: none;
+}
+
+.list-item {
+  background: #f1eded;
+  border-radius: 1rem;
+  min-height: 3.3rem;
+  padding: 0.5rem;
+}
+
+#contact-name {
+  color: #2f2f3c;
+}
