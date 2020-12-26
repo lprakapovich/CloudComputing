@@ -23,8 +23,11 @@ import { ChatListItemComponent } from './components/chats/chat-list-item/chat-li
 import { ContactListItemComponent } from './components/contacts/contact-list-item/contact-list-item.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { InitChatComponent } from './init-chat/init-chat.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FilterPipe } from './directives/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,7 @@ import { InitChatComponent } from './init-chat/init-chat.component';
     ChatListItemComponent,
     ContactListComponent,
     ContactListItemComponent,
-    InitChatComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,15 @@ import { InitChatComponent } from './init-chat/init-chat.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

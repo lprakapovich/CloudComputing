@@ -6,8 +6,8 @@ import {
   graphqlOperation
 } from 'aws-amplify';
 
-import {getUser} from '../../graphql/queries';
-import {createUser} from '../../graphql/mutations';
+import { getUser } from '../../graphql/queries';
+import { createUser } from '../../graphql/mutations';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,8 @@ export class AuthService {
   // bypassCache ensures user info is taken directly from the server, rather than from cache
   async isAuthenticated(): Promise<any> {
     const isAuth = await Auth.currentAuthenticatedUser({bypassCache: true});
+
+    localStorage.setItem('userId', isAuth.attributes.sub);
 
     const userData = await API.graphql(
       graphqlOperation(

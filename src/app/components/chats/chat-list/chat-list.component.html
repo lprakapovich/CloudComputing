@@ -1,1 +1,40 @@
-<p>chat-list works!</p>
+<div class="main-container">
+  <div class="chats-container">
+
+    <div class="chats-header">
+      <h2>Conversations </h2>
+    </div>
+
+    <form class="chats-form">
+      <mat-form-field class="datePicker">
+        <mat-label>Select time period</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input #fromInput matStartDate matInput placeholder="From">
+          <input #toInput matEndDate matInput placeholder="To">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker [startAt]="startDate"></mat-date-range-picker>
+      </mat-form-field>
+    </form>
+
+    <div class="buttonGroup">
+      <button class="buttonSet" mat-raised-button (click)="setDatesAsSelected(fromInput, toInput)">Filter</button>
+      <div class="buttonDivider"></div>
+      <button class="buttonReset" mat-raised-button (click)="resetDates(fromInput, toInput)">Reset</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="chat-list" *ngIf="chatRooms">
+      <mat-nav-list *ngFor="let chatRoom of chatRooms">
+
+        <app-chat-list-item (click)="onClick(chatRoom)"
+                            [chatRoom]="chatRoom"></app-chat-list-item>
+      </mat-nav-list>
+    </div>
+  </div>
+</div>
+
+
+
+

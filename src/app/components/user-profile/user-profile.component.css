@@ -1,11 +1,18 @@
 @media only screen and (min-width: 600px) {
-  p {
+  .user-profile-container {
     margin-left: 5rem;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  p {
-    margin-left: 0;
+  .user-profile-container {
+    margin-left: 2rem;
   }
+}
+
+.user-profile-container {
+  height: 100vh;
+  width: 25rem;
+  background-color: #f0eff5;
+  padding: 2rem;
 }
