@@ -20,7 +20,7 @@
     </ng-template>
 
     <ng-template #chatList>
-      <app-chat-list></app-chat-list>
+      <app-chat-list (openChatRoomEvent)="openChatRoom($event)"></app-chat-list>
     </ng-template>
 
     <ng-template #contactList>

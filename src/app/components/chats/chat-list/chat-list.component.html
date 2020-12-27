@@ -28,7 +28,7 @@
     <div class="chat-list" *ngIf="chatRooms">
       <mat-nav-list *ngFor="let chatRoom of chatRooms">
 
-        <app-chat-list-item (click)="onClick(chatRoom)"
+        <app-chat-list-item (click)="openChatRoom(chatRoom)"
                             [chatRoom]="chatRoom"></app-chat-list-item>
       </mat-nav-list>
     </div>

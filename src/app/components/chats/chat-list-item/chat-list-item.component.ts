@@ -12,12 +12,10 @@ export class ChatListItemComponent implements OnInit {
 
   chatRoomTitle: string;
   currentUserId: string;
-
-  constructor() { }
-
   ngOnInit(): void {
     this.currentUserId = localStorage.getItem('userId');
     this.chatRoomTitle = this.getChatRoomTitle();
+    console.log('lastMessage:', this.chatRoom);
   }
 
   getChatRoomTitle(): string {

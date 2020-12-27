@@ -1,9 +1,10 @@
 import {ChatRoomUser} from './ChatRoomUser';
-/*
-  We need this 'items' attribute to match the exact structure of the objects returned by GraphQL.
- */
+import {Message} from './Message';
+
 export interface ChatRoom {
   id: string;
+  lastMessageId: string;
+  lastMessage: Message;
   chatRoomUsers: {
     items: ChatRoomUser[];
   };

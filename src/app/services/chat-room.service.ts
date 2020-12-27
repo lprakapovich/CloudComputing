@@ -4,8 +4,8 @@ import {User} from '../models/User';
 
 import {API, graphqlOperation} from 'aws-amplify';
 import {getUser} from '../custom-queries/queries';
-import {getChatRoom} from '../../graphql/queries';
-import {createChatRoom, createChatRoomUser} from '../../graphql/mutations';
+import {getChatRoom, listChatRooms} from '../../graphql/queries';
+import {createChatRoom, createChatRoomUser, updateChatRoom} from '../../graphql/mutations';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,15 @@ export class ChatRoomService {
   constructor() { }
 
   async getCurrentUserChatRooms(): Promise<ChatRoom[]> {
+
+    const all = await API.graphql(
+      graphqlOperation(
+        listChatRooms
+      )
+    );
+
+    console.log(all);
+
     const user = await API.graphql(
       graphqlOperation(
         getUser,
@@ -37,7 +46,9 @@ export class ChatRoomService {
   async createChatRoomWith(anotherUser: User): Promise<ChatRoom> {
     const newChatRoomData = await API.graphql(
       graphqlOperation(
-        createChatRoom, { input: {}}
+        createChatRoom, { input: {
+          lastMessageID: 0
+        }}
       )
     );
     if (!newChatRoomData) {
@@ -91,5 +102,17 @@ export class ChatRoomService {
 
     // @ts-ignore
     return chatRoom.data.getChatRoom;
+  }
+
+  async updateChatRoomLastMessage(chatRoomId: string, messageId: string): Promise<any> {
+    await API.graphql(graphqlOperation(
+      updateChatRoom,
+      {
+        input: {
+          id: chatRoomId,
+          lastMessageID: messageId
+        }
+      }
+    ));
   }
 }

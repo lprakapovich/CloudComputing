@@ -1,6 +1,7 @@
 <div>
   <a class = "listItem" mat-list-item>
       <mat-label class = "personText" >{{chatRoomTitle}}</mat-label>
-      <mat-label class = "messageText">Hi! How's the project going?</mat-label>
+      <mat-label class = "messageText">{{chatRoom?.lastMessage ?
+         chatRoom.lastMessage.content : 'No messages yet.' }}</mat-label>
   </a>
 </div>

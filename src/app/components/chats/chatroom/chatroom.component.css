@@ -10,14 +10,15 @@ body {
 .chat {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
   width: 100%;
-  margin: 0 auto;
+  max-width: 45rem;
+  margin: 1rem auto;
   padding: 1.5rem;
   position: relative;
   height: 100%;
   box-sizing: border-box;
   background-color: #deafaf;
+  border-radius: 1rem;
 }
 
 .message {

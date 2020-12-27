@@ -29,7 +29,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MAT_RIPPLE_GLOBAL_OPTIONS, MatNativeDateModule} from '@angular/material/core';
 import { FilterPipe } from './directives/filter.pipe';
 import { ChatSpaceComponent } from './components/chats/chat-space/chat-space.component';
-import {ChatBubbleComponent} from './components/chats/chat-bubble/chat-bubble.component';
+import {MessageBubbleComponent} from './components/chats/message-bubble/message-bubble.component';
 
 @NgModule({
     declarations: [
@@ -44,8 +44,8 @@ import {ChatBubbleComponent} from './components/chats/chat-bubble/chat-bubble.co
         ContactListItemComponent,
         FilterPipe,
         ChatSpaceComponent,
-        ChatBubbleComponent,
-        ChatBubbleComponent
+        MessageBubbleComponent,
+        MessageBubbleComponent
     ],
   imports: [
     BrowserModule,

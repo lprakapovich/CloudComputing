@@ -1,13 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Message} from '../../../models/Message';
-import {MessageService} from '../../../services/message.service';
 
 @Component({
-  selector: 'app-chat-bubble',
-  templateUrl: './chat-bubble.component.html',
-  styleUrls: ['./chat-bubble.component.css']
+  selector: 'app-message-bubble',
+  templateUrl: './message-bubble.component.html',
+  styleUrls: ['./message-bubble.component.css']
 })
-export class ChatBubbleComponent implements OnInit {
+export class MessageBubbleComponent implements OnInit {
   @Input() message: Message;
 
   currentUserId: string;
@@ -18,5 +17,4 @@ export class ChatBubbleComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

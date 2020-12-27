@@ -1,11 +1,10 @@
 <div class="chat">
 
-  <h5> Chat Id: {{chatRoom?.id}} </h5>
-  <h6> {{ messageContent }}</h6>
+  <h5> Messaging with: {{getTitle()}} </h5>
 
   <div *ngFor="let message of messages">
-    <app-chat-bubble [message]="message">
-    </app-chat-bubble>
+    <app-message-bubble [message]="message">
+    </app-message-bubble>
   </div>
 
   <div layout layout-align="center" layout-padding id="form">

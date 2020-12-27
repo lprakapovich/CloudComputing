@@ -22,6 +22,13 @@ export const getUser = `
                 }
               }
             }
+            lastMessageID
+            lastMessage {
+              id
+              content
+              createdAt
+              userID
+            }
           }
         }
         nextToken
