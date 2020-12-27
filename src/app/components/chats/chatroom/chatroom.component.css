@@ -10,8 +10,13 @@ body {
 .chat {
   display: flex;
   flex-direction: column;
-  width: 600px;
-  margin: 20px auto;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .message {
@@ -32,14 +37,14 @@ body {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.message-sent:last-child {
-  border-bottom-right-radius: 10px;
+.message-sent:last-of-type {
+  border-bottom-right-radius: 10px !important;
 }
-.message-sent:first-child {
-  border-bottom-right-radius: 0;
+.message-sent:first-of-type {
+  border-bottom-right-radius: 0 !important;
 }
-.message-sent:only-child {
-  border-radius: 10px;
+.message-sent:only-of-type {
+  border-radius: 10px !important;
 }
 
 .message-incoming {
@@ -49,12 +54,43 @@ body {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.message-incoming:last-child {
-  border-bottom-left-radius: 10px;
+.message-incoming:last-of-type {
+  border-bottom-left-radius: 10px !important;
 }
-.message-incoming:first-child {
-  border-bottom-left-radius: 0;
+.message-incoming:first-of-type {
+  border-bottom-left-radius: 0 !important;;
 }
-.message-incoming:only-child {
-  border-radius: 10px;
+.message-incoming:only-of-type {
+  border-radius: 10px !important;
+}
+
+#form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid #202120;
+  background-color: #fff;
+  border-bottom: none;
+  border-radius: .5rem .5rem 0 0;
+  padding: 0 1rem;
+}
+
+.mat-form-field {
+  line-height: inherit;
+}
+
+#send {
+  margin-left: .5rem;
+  height: 36px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.width-100 {
+  width: 100%;
 }
