@@ -3,6 +3,7 @@ import {UserService} from '../../../services/user.service';
 import {User} from '../../../models/User';
 import {ChatRoomService} from '../../../services/chat-room.service';
 import {ChatRoom} from '../../../models/ChatRoom';
+import {Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-contact-list',
@@ -20,7 +21,8 @@ export class ContactListComponent implements OnInit {
   users: User[];
 
   constructor(private userService: UserService,
-              private chatRoomService: ChatRoomService) { }
+              private chatRoomService: ChatRoomService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.currentUserId = localStorage.getItem('userId');
@@ -70,6 +72,7 @@ export class ContactListComponent implements OnInit {
   }
 
   private openExistingChatRoom(): void {
+    this.router.navigate(['chat-space']);
     this.openChatRoomEvent.emit(this.existingChatRoom);
   }
 }

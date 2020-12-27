@@ -88,6 +88,7 @@ export class ChatRoomService {
         }
       )
     );
+
     // @ts-ignore
     return chatRoom.data.getChatRoom;
   }

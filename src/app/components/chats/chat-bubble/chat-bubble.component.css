@@ -1,0 +1,22 @@
+.chat-bubble {
+  background-color: #ececec;
+  border-radius: 5px;
+  width: 20rem;
+  min-height: fit-content;
+  max-height: fit-content;
+  padding: 1rem;
+  word-wrap: break-word;
+  margin: 0.5rem;
+}
+
+.bubble-content {
+  width: inherit;
+}
+
+.others {
+float: left;
+}
+
+.mine {
+  float: right;
+}

@@ -29,21 +29,24 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MAT_RIPPLE_GLOBAL_OPTIONS, MatNativeDateModule} from '@angular/material/core';
 import { FilterPipe } from './directives/filter.pipe';
 import { ChatSpaceComponent } from './components/chats/chat-space/chat-space.component';
+import {ChatBubbleComponent} from './components/chats/chat-bubble/chat-bubble.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ChatroomComponent,
-    NavigationBarComponent,
-    UserProfileComponent,
-    SettingsComponent,
-    ChatListComponent,
-    ChatListItemComponent,
-    ContactListComponent,
-    ContactListItemComponent,
-    FilterPipe,
-    ChatSpaceComponent
-  ],
+    declarations: [
+        AppComponent,
+        ChatroomComponent,
+        NavigationBarComponent,
+        UserProfileComponent,
+        SettingsComponent,
+        ChatListComponent,
+        ChatListItemComponent,
+        ContactListComponent,
+        ContactListItemComponent,
+        FilterPipe,
+        ChatSpaceComponent,
+        ChatBubbleComponent,
+        ChatBubbleComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

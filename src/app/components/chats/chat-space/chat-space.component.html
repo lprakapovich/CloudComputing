@@ -7,9 +7,17 @@
           *ngIf="section === 2; then contactList">
     </div>
 
-    <div class="right-section">
-      <app-chatroom [chatRoom]="chatRoomToOpen"></app-chatroom>
+    <div *ngIf="chatRoomToOpen; then chatRoomChosen; else noChatRoomChosen">
     </div>
+
+    <ng-template #chatRoomChosen>
+      <app-chatroom class="right-section" [chatRoom]="chatRoomToOpen">
+      </app-chatroom>
+    </ng-template>
+
+    <ng-template #noChatRoomChosen>
+      <p> No chat room chosen </p>
+    </ng-template>
 
     <ng-template #chatList>
       <app-chat-list></app-chat-list>
