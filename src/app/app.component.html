@@ -1,6 +1,9 @@
   <amplify-authenticator>
     <div>
-      <app-navigation-bar (signOutEvent)="signOut()"></app-navigation-bar>
+      <app-navigation-bar (signOutEvent)="signOut()"
+                          (changeSectionEvent)="changeComponent($event)">
+      </app-navigation-bar>
+      <app-chat-space [section]="section"></app-chat-space>
     </div>
     <router-outlet></router-outlet>
   </amplify-authenticator>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { AuthService } from './services/auth.service';
-import {UserService} from './services/user.service';
+import {AuthService} from './services/auth.service';
+import {Section} from './components/chats/chat-space/chat-space.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,7 @@ import {UserService} from './services/user.service';
 export class AppComponent implements OnInit {
   title = 'cloudchat-app';
   isAuthenticated: boolean;
+  section: Section;
 
   constructor(private authService: AuthService) {}
 
@@ -21,5 +22,10 @@ export class AppComponent implements OnInit {
 
   signOut(): void {
     this.authService.signOut();
+  }
+
+  changeComponent(data): void {
+    this.section = data;
+    console.log(this.section);
   }
 }

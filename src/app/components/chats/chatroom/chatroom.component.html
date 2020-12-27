@@ -1,14 +1,26 @@
 <div class="chat">
+
+  <h5> Chat Id: {{chatRoom.id}} </h5>
+  <h6> {{ message }}</h6>
+
   <div *ngFor="let chatPart of chat" [className]="chatPart.incoming ? 'incoming' : 'sent'">
+
     <div class="name">{{chatPart.name}}</div>
+
     <p *ngFor="let message of chatPart.messages" [className]="chatPart.incoming ? 'message message-incoming' : 'message message-sent'">{{message}}</p>
   </div>
-  <form layout layout-align="center" layout-padding id="form">
+
+  <div layout layout-align="center" layout-padding id="form">
     <div layout="row" class="flex-center">
       <mat-form-field appearance="legacy" class="width-100">
-        <input matInput type="text" id="message" placeholder="Message">
+        <input matInput type="text" id="message" placeholder="Message" [(ngModel)]="message">
       </mat-form-field>
-      <button mat-raised-button color="primary" id="send">Send</button>
+      <button
+        mat-raised-button
+        color="primary"
+        id="send"
+      (click)="sendMessage()">
+        Send</button>
     </div>
-  </form>
+  </div>
 </div>

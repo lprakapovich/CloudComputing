@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import {MAT_RIPPLE_GLOBAL_OPTIONS, MatNativeDateModule} from '@angular/material/core';
 import { FilterPipe } from './directives/filter.pipe';
+import { ChatSpaceComponent } from './components/chats/chat-space/chat-space.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FilterPipe } from './directives/filter.pipe';
     ChatListItemComponent,
     ContactListComponent,
     ContactListItemComponent,
-    FilterPipe
+    FilterPipe,
+    ChatSpaceComponent
   ],
   imports: [
     BrowserModule,

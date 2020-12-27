@@ -6,7 +6,7 @@
   .contacts-container {
     width: 25rem;
     height: 100vh;
-    position: fixed;
+    position: relative;
   }
 }
 

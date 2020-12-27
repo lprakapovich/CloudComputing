@@ -1,18 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../models/User';
 import {ChatRoomService} from '../../../services/chat-room.service';
+import {ChatRoom} from '../../../models/ChatRoom';
 
 @Component({
-  selector: 'app-user-contacts',
+  selector: 'app-user-contact-list',
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
 
-  currentUserId: string;
-  existingChatRoomId: string;
+  @Output() openChatRoomEvent = new EventEmitter<ChatRoom>();
 
+  currentUserId: string;
+
+  existingChatRoom: ChatRoom;
   selectedUser: User;
   users: User[];
 
@@ -25,18 +28,18 @@ export class ContactListComponent implements OnInit {
     this.fetchUsers();
   }
 
-  fetchUsers(): void {
+  public onUserSelected(user: User): void {
+    this.selectedUser = user;
+    this.chatRoomExists() ? this.openExistingChatRoom() : this.createNewChatRoom();
+  }
+
+  private fetchUsers(): void {
     this.userService.getAllUsers().then(users => {
       this.users = users;
     });
   }
 
-  onUserSelected(user: User): void {
-    this.selectedUser = user;
-    this.chatRoomExists() ? this.openExistingChatRoom() : this.createNewChatRoom();
-  }
-
-  chatRoomExists(): boolean {
+  private chatRoomExists(): boolean {
     let chatExists = false;
     const chatRoomUsers = this.selectedUser.chatRoomUser.items;
 
@@ -44,7 +47,7 @@ export class ContactListComponent implements OnInit {
       chatRoomUser.chatRoom.chatRoomUsers.items.forEach((value) => {
         if (value.user.id === this.currentUserId) {
           chatExists = true;
-          this.existingChatRoomId = chatRoomUsers[index].chatRoom.id;
+          this.existingChatRoom = chatRoomUsers[index].chatRoom;
         }
       });
     });
@@ -67,10 +70,6 @@ export class ContactListComponent implements OnInit {
   }
 
   private openExistingChatRoom(): void {
-    this.chatRoomService.getChatRoomById(this.existingChatRoomId).then(chatRoom => {
-        console.log('ChatRoom already exists');
-        console.log(chatRoom);
-      }
-    );
+    this.openChatRoomEvent.emit(this.existingChatRoom);
   }
 }

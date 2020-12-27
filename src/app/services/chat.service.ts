@@ -8,10 +8,10 @@ export class ChatService {
   private chat: Chat[] = [];
 
   constructor() {
-    this.chat = [{ name: 'hi', messages: ["hello world"], incoming: true }];
+    this.chat = [{ name: 'hi', messages: ['hello world'], incoming: true }];
   }
 
-  getMessages() {
+  getMessages(): Chat[] {
     return this.chat;
   }
 }

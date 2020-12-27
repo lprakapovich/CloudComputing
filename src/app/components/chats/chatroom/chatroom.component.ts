@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Chat, ChatService } from 'src/app/services/chat.service';
+import {ChatRoom} from '../../../models/ChatRoom';
 
 @Component({
   selector: 'app-chatroom',
@@ -8,12 +9,19 @@ import { Chat, ChatService } from 'src/app/services/chat.service';
   providers: [ ChatService ]
 })
 export class ChatroomComponent implements OnInit {
-  public chat: Chat[];
+  @Input() chatRoom: ChatRoom;
 
-  constructor(private readonly ChatService: ChatService) {
+  chat: Chat[];
+  message: string;
+
+  constructor(private readonly chatService: ChatService) {
   }
 
   ngOnInit(): void {
-    this.chat = this.ChatService.getMessages();
+    // this.chat = this.chatService.getMessages();
+  }
+
+  sendMessage(): void {
+
   }
 }

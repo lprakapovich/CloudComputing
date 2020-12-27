@@ -6,7 +6,7 @@
   .chats-container {
     width: 25rem;
     height: 100%;
-    position: fixed;
+    position: relative;
   }
 }
 
@@ -16,12 +16,8 @@
   }
 }
 
-.main-container {
-  background-color: var(--bg-primary);
-}
-
 .chats-container {
-  margin: 2rem;
+  padding: 2rem;
 }
 
 .chats-header {
@@ -68,14 +64,14 @@
   height: 3rem;
 }
 
-.chat-list {
+.left-section {
   float: left;
   width: 25rem;
   height:80%;
   overflow: hidden;
 }
 
-.chat-list:hover {
+.left-section:hover {
   overflow: auto;
 }
 

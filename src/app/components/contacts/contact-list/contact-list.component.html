@@ -20,7 +20,9 @@
 
     <div class="contact-list">
       <mat-nav-list *ngFor="let user of users">
-        <app-contact-list-item (click)="onUserSelected(user)" [user]="user"></app-contact-list-item>
+        <app-contact-list-item [user]="user"
+                               (click)="onUserSelected(user)"
+        ></app-contact-list-item>
       </mat-nav-list>
   </div>
 </div>
