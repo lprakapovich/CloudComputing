@@ -72,7 +72,6 @@ export class ContactListComponent implements OnInit {
   }
 
   private openExistingChatRoom(): void {
-    this.router.navigate(['chat-space']);
     this.openChatRoomEvent.emit(this.existingChatRoom);
   }
 }

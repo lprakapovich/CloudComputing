@@ -9,7 +9,7 @@ const routes: Routes = [
   // { path: 'user-profile', component: UserProfileComponent },
   // { path: 'user-settings', component: ChatSpaceComponent },
   // { path: 'chatroom', component: ChatroomComponent },
-  // { path: '', redirectTo: 'chat-space', pathMatch: 'full'},
+  { path: '', redirectTo: 'chat-space', pathMatch: 'full'},
   ];
 
 @NgModule({

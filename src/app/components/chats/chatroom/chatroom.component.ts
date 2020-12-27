@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
 import { Chat, ChatService } from 'src/app/services/chat.service';
 import {ChatRoom} from '../../../models/ChatRoom';
 import {MessageService} from '../../../services/message.service';
@@ -10,7 +10,7 @@ import {Message} from '../../../models/Message';
   styleUrls: ['./chatroom.component.css'],
   providers: [ ChatService ]
 })
-export class ChatroomComponent implements OnInit {
+export class ChatroomComponent implements OnInit, OnChanges {
   @Input() chatRoom: ChatRoom;
 
   messages: Message[];
@@ -22,16 +22,23 @@ export class ChatroomComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.chat = this.chatService.getMessages()
-    this.messageService.getMessagesByChatRoomId(this.chatRoom.id).then((messages) => {
-      this.messages = messages;
-      console.log(this.messages);
-    });
+    this.fetchMessages();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.fetchMessages();
   }
 
   sendMessage(): void {
       this.messageService.sendMessage(this.chatRoom.id, this.messageContent).then((messages) => {
         console.log(messages);
+    });
+  }
+
+  fetchMessages(): void {
+    this.messageService.getMessagesByChatRoomId(this.chatRoom.id).then((messages) => {
+      this.messages = messages;
+      console.log(messages);
     });
   }
 }
