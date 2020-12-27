@@ -3,13 +3,15 @@ import {
   API,
   graphqlOperation
 } from 'aws-amplify';
-import {getUser} from '../custom-queries/queries';
+import {getUser, listUsers} from '../custom-queries/queries';
 import {User} from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  users: User[];
 
   id: string = localStorage.getItem('userId');
 
@@ -22,16 +24,22 @@ export class UserService {
 
      // @ts-ignore
      const userData = user.data.getUser;
-
-     console.log('User:');
-     console.log(userData);
-
      return {
        id: userData.id,
        name: userData.name,
        status: userData.status,
        imageUri: userData.imageUri,
-       chatRoomUsers: userData.chatRoomUser
+       chatRoomUser: userData.chatRoomUser
      };
+   }
+
+   async getAllUsers(): Promise<User[]> {
+     const users = await API.graphql(
+       graphqlOperation(
+         listUsers
+       )
+     );
+     // @ts-ignore
+     return users.data.listUsers.items;
    }
 }

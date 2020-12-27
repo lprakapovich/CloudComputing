@@ -5,5 +5,7 @@ export interface User {
   name: string;
   imageUri: string;
   status: string;
-  chatRoomUsers: ChatRoomUser[];
+  chatRoomUser: {
+    items: ChatRoomUser[];
+  };
 }

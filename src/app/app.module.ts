@@ -26,7 +26,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatNativeDateModule } from '@angular/material/core';
+import {MAT_RIPPLE_GLOBAL_OPTIONS, MatNativeDateModule} from '@angular/material/core';
 import { FilterPipe } from './directives/filter.pipe';
 
 @NgModule({
@@ -65,7 +65,9 @@ import { FilterPipe } from './directives/filter.pipe';
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: {disabled: true}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

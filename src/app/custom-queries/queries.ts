@@ -31,3 +31,40 @@ export const getUser = `
     }
   }
 `;
+
+export const listUsers = `
+  query ListUsers(
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        imageUri
+        status
+        chatRoomUser {
+          items {
+            id,
+            chatRoom {
+              id,
+              chatRoomUsers {
+                items {
+                  user {
+                     name,
+                     id
+                  }
+                }
+              }
+            }
+          }
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+
