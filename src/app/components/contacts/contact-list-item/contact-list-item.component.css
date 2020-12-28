@@ -1,15 +1,45 @@
 .btn-open-chat {
-  color: #deafaf;
-  text-decoration: none;
+  color: #7a65fc;
+  font-size: 3rem;
+  border: transparent;
+  background-color: transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+.btn-open-chat:hover {
+  color: #a798ff;
+
 }
 
 .list-item {
-  background: #f1eded;
+  background-color: var(--bg-components-primary-dark);
+  color: #f0eff5;
+  font-size: 1rem;
   border-radius: 1rem;
   min-height: 3.3rem;
   padding: 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.list-item-element {
+  display: flex;
+  align-items: center;
+}
+
+.list-item-element:last-child {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.list-item-element:first-child {
+  margin-left: 1rem;
 }
 
 #contact-name {
-  color: #2f2f3c;
+  color: #d1d1d6;
 }

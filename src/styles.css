@@ -7,13 +7,19 @@ body {
   height: auto;
   margin: 0;
   padding: 0;
-  --text-primary: #b6b6b6;
+  --text-primary: #dfdff5;
   --text-secondary: #ececec;
   --bg-primary: #3b464f;
   --bg-primary-light: #46525f;
 
-  --bg-secondary: #2f2f3c;
+  --bg-secondary: #36404a;
+  --bg-secondary-darken: #313a43;
+
   --bg-primary-hover: #738292;
+
+  --bg-components-primary: #303841;
+  --bg-components-primary-dark: #29323b;
+  --bg-chatroom-primary: #293640;
 }
 
 html, body { height: 100%; }

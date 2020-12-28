@@ -1,11 +1,27 @@
 <div class="chat">
 
-  <h5> Messaging with: {{chatRoom ? getTitle() : ''}} </h5>
-
-  <div *ngFor="let message of messages">
-    <app-message-bubble [message]="message">
-    </app-message-bubble>
+  <div class="chat-header">
+    <div class="chat-header-item"> {{chatRoom? getTitle() : 'Unknown' }}</div>
+    <button class="search-button chat-header-item">
+      <mat-icon> search </mat-icon>
+    </button>
   </div>
+  <mat-divider></mat-divider>
+
+  <div class="chat-content">
+    <div class="chat-content-item"
+         *ngFor="let message of messages">
+      <app-message-bubble [ngClass]="message.userID === currentUserId ? 'mine' : 'others'"
+                          [message]="message">
+      </app-message-bubble>
+    </div>
+  </div>
+
+<!--  <div *ngFor="let message of messages">-->
+<!--    <app-message-bubble [message]="message">-->
+<!--    </app-message-bubble>-->
+<!--  </div>-->
+
 
   <div layout layout-align="center" layout-padding id="form">
     <div layout="row" class="flex-center">
@@ -22,4 +38,5 @@
       </button>
     </div>
   </div>
+
 </div>

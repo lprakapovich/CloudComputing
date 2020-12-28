@@ -5,66 +5,105 @@
 body {
   background-color: #202120;
   color: #f0f5f0;
+  margin: 0;
+  padding: 0;
 }
 
 .chat {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 45rem;
-  margin: 1rem auto;
-  padding: 1.5rem;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
   position: relative;
-  height: 100%;
   box-sizing: border-box;
-  background-color: #deafaf;
-  border-radius: 1rem;
+  background-color: var(--bg-chatroom-primary);
+  color: var(--text-secondary)
+}
+
+.chat-header {
+  display: flex;
+  flex-direction: row;
+  height: 5rem;
+}
+
+.mat-divider {
+  color: var(--text-secondary);
+}
+.chat-header-item {
+  display: flex;
+  align-items: center;
+  width: 5rem;
+}
+
+.mine {
+  float: right;
+}
+
+.search-button {
+  background-color: transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  color: var(--text-secondary)
+}
+
+.material-icons {
+  font-size: 2rem;
+}
+
+.chat-header-item:first-child {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+
+.chat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header-item:last-child {
+  margin-left: auto;
 }
 
 .message {
-  width: 200px;
   padding: 1rem;
-  border-radius: 10px;
   margin-bottom: 5px;
 }
 
-.sent {
-  align-self: flex-end;
-}
+/*.message-sent + .message-sent {*/
+/*  border-top-right-radius: 0;*/
+/*  border-bottom-right-radius: 0;*/
+/*}*/
+/*.message:last-of-type {*/
+/*  border-bottom-right-radius: 10px !important;*/
+/*}*/
+/*.message:first-of-type {*/
+/*  border-bottom-right-radius: 0 !important;*/
+/*}*/
+/*.message:only-of-type {*/
+/*  border-radius: 10px !important;*/
+/*}*/
 
-.message-sent {
-  background-color: rgb(58, 149, 73);
-}
-.message-sent + .message-sent {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.message-sent:last-of-type {
-  border-bottom-right-radius: 10px !important;
-}
-.message-sent:first-of-type {
-  border-bottom-right-radius: 0 !important;
-}
-.message-sent:only-of-type {
-  border-radius: 10px !important;
-}
 
-.message-incoming {
-  background-color: rgb(101, 104, 102);
-}
-.message-incoming + .message-incoming {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.message-incoming:last-of-type {
-  border-bottom-left-radius: 10px !important;
-}
-.message-incoming:first-of-type {
-  border-bottom-left-radius: 0 !important;;
-}
-.message-incoming:only-of-type {
-  border-radius: 10px !important;
-}
+/*.message-incoming {*/
+/*  background-color: rgb(101, 104, 102);*/
+/*}*/
+/*.message-incoming + .message-incoming {*/
+/*  border-top-left-radius: 0;*/
+/*  border-bottom-left-radius: 0;*/
+/*}*/
+/*.message-incoming:last-of-type {*/
+/*  border-bottom-left-radius: 10px !important;*/
+/*}*/
+/*.message-incoming:first-of-type {*/
+/*  border-bottom-left-radius: 0 !important;;*/
+/*}*/
+/*.message-incoming:only-of-type {*/
+/*  border-radius: 10px !important;*/
+/*}*/
 
 #form {
   position: absolute;
@@ -80,11 +119,6 @@ body {
 
 .mat-form-field {
   line-height: inherit;
-}
-
-#send {
-  margin-left: .5rem;
-  height: 36px;
 }
 
 .flex-center {

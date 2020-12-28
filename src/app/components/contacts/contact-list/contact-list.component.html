@@ -3,28 +3,23 @@
 
     <div class="contacts-header">
       <h2> Contacts </h2>
-      <button mat-button
-              id="add-contact">
-        <span class="material-icons">person_add_alt_1</span>
-      </button>
     </div>
 
-    <form class="example-form">
-      <mat-form-field class="full-width">
-        <mat-label>Find a user</mat-label>
-        <label>
-          <input matInput placeholder="Jan Kowalski">
-        </label>
-      </mat-form-field>
-    </form>
+<!--    <form class="example-form">-->
+<!--      <mat-form-field class="full-width">-->
+<!--        <mat-label>Find a user</mat-label>-->
+<!--        <label>-->
+<!--          <input matInput placeholder="Jan Kowalski">-->
+<!--        </label>-->
+<!--      </mat-form-field>-->
+<!--    </form>-->
 
     <div class="contact-list">
-      <mat-nav-list *ngFor="let user of users">
+      <div *ngFor="let user of [1, 1,2,2,2,2,2,2,2,2,2]">
         <app-contact-list-item [user]="user"
-                               (click)="onUserSelected(user)"
-
-        ></app-contact-list-item>
-      </mat-nav-list>
+                               (click)="onUserSelected(user)">
+        </app-contact-list-item>
+      </div>
   </div>
 </div>
 
