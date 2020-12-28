@@ -1,8 +1,5 @@
-import { Injectable } from '@angular/core';
-import {
-  API,
-  graphqlOperation
-} from 'aws-amplify';
+import {Injectable} from '@angular/core';
+import {API, graphqlOperation} from 'aws-amplify';
 import {getUser, listUsers} from '../custom-queries/queries';
 import {User} from '../models/User';
 
@@ -13,13 +10,13 @@ export class UserService {
 
   users: User[];
 
-  id: string = localStorage.getItem('userId');
+  currentUserId: string = localStorage.getItem('userId');
 
    async getCurrentUser(): Promise<User> {
      const user = await API.graphql(
        graphqlOperation(
          getUser,
-         {id: this.id})
+         {id: this.currentUserId})
      );
 
      // @ts-ignore
@@ -40,6 +37,6 @@ export class UserService {
        )
      );
      // @ts-ignore
-     return users.data.listUsers.items;
+     return users.data.listUsers.items.filter(u => u.id !== this.currentUserId);
    }
 }

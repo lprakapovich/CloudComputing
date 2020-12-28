@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ChatRoom} from '../../../models/ChatRoom';
+import {MessageService} from '../../../services/message.service';
 
 @Component({
   selector: 'app-chat-list-item',
@@ -12,10 +13,25 @@ export class ChatListItemComponent implements OnInit {
 
   chatRoomTitle: string;
   currentUserId: string;
+  subscription;
+
+  constructor(private messageService: MessageService) {
+  }
+
   ngOnInit(): void {
     this.currentUserId = localStorage.getItem('userId');
     this.chatRoomTitle = this.getChatRoomTitle();
-    console.log('lastMessage:', this.chatRoom);
+
+    this.subscription = this.messageService.subscribeOnCreateMessage();
+    this.subscription.subscribe({
+      next: (data) => {
+        const newMessage = data.value.data.onCreateMessage;
+        if (newMessage.chatRoom.id !== this.chatRoom.id) {
+          return;
+        }
+        this.chatRoom.lastMessage = newMessage;
+      }
+    });
   }
 
   getChatRoomTitle(): string {

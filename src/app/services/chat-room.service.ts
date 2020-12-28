@@ -3,8 +3,7 @@ import {ChatRoom} from '../models/ChatRoom';
 import {User} from '../models/User';
 
 import {API, graphqlOperation} from 'aws-amplify';
-import {getUser} from '../custom-queries/queries';
-import {getChatRoom, listChatRooms} from '../../graphql/queries';
+import {getChatRoom, getUser} from '../custom-queries/queries';
 import {createChatRoom, createChatRoomUser, updateChatRoom} from '../../graphql/mutations';
 
 @Injectable({
@@ -12,21 +11,9 @@ import {createChatRoom, createChatRoomUser, updateChatRoom} from '../../graphql/
 })
 export class ChatRoomService {
 
-  chatRooms: ChatRoom[] = [];
   id: string = localStorage.getItem('userId');
 
-  constructor() { }
-
   async getCurrentUserChatRooms(): Promise<ChatRoom[]> {
-
-    const all = await API.graphql(
-      graphqlOperation(
-        listChatRooms
-      )
-    );
-
-    console.log(all);
-
     const user = await API.graphql(
       graphqlOperation(
         getUser,
@@ -35,12 +22,12 @@ export class ChatRoomService {
 
     // @ts-ignore
     const userData = user.data.getUser;
+    const chatRooms = [];
 
     userData.chatRoomUser.items.forEach((chatRoomUser) => {
-      this.chatRooms.push(chatRoomUser.chatRoom);
+      chatRooms.push(chatRoomUser.chatRoom);
     });
-
-    return this.chatRooms;
+    return chatRooms;
   }
 
   async createChatRoomWith(anotherUser: User): Promise<ChatRoom> {
@@ -105,10 +92,11 @@ export class ChatRoomService {
   }
 
   async updateChatRoomLastMessage(chatRoomId: string, messageId: string): Promise<any> {
-    await API.graphql(graphqlOperation(
-      updateChatRoom,
-      {
-        input: {
+    await API.graphql(
+      graphqlOperation(
+        updateChatRoom,
+        {
+          input: {
           id: chatRoomId,
           lastMessageID: messageId
         }

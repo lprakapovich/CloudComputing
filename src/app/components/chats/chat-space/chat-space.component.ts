@@ -1,5 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChatRoom} from '../../../models/ChatRoom';
+import {ActivatedRoute} from '@angular/router';
+import {ContactListComponent} from '../../contacts/contact-list/contact-list.component';
+import {ChatListComponent} from '../chat-list/chat-list.component';
+import {ChatRoomService} from '../../../services/chat-room.service';
+
 @Component({
   selector: 'app-chat-space',
   templateUrl: './chat-space.component.html',
@@ -7,21 +12,28 @@ import {ChatRoom} from '../../../models/ChatRoom';
 })
 export class ChatSpaceComponent implements OnInit {
 
-  @Input() section: Section;
+  section: string;
   chatRoomToOpen: ChatRoom;
+  chatRoomToOpenId: string;
+  dummyComponent;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private chatRoomService: ChatRoomService) { }
 
   ngOnInit(): void {
-    this.section = Section.CHAT_LIST;
+    this.route.queryParams.subscribe(params => {
+
+      params.roomId ? this.getChatRoom(params.roomId) : console.log('roomId not received');
+
+      params.section === 'chats' ?
+        this.dummyComponent = ChatListComponent
+        : this.dummyComponent = ContactListComponent;
+    });
   }
 
-  openChatRoom(data): void {
-    this.chatRoomToOpen = data;
+  getChatRoom(id: string): void {
+    this.chatRoomService.getChatRoomById(id).then(chatRoom => {
+      this.chatRoomToOpen = chatRoom;
+    });
   }
-}
-
-export enum Section {
-  CONTACT_LIST = 2,
-  CHAT_LIST = 1
 }

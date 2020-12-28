@@ -1,18 +1,13 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {ChatService} from 'src/app/services/chat.service';
 import {ChatRoom} from '../../../models/ChatRoom';
 import {MessageService} from '../../../services/message.service';
 import {Message} from '../../../models/Message';
 import {ChatRoomService} from '../../../services/chat-room.service';
-import {API, graphqlOperation} from 'aws-amplify';
-import {onCreateMessage} from '../../../../graphql/subscriptions';
-
 
 @Component({
   selector: 'app-chatroom',
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.css'],
-  providers: [ ChatService ]
 })
 export class ChatroomComponent implements OnInit, OnChanges, OnDestroy {
   @Input() chatRoom: ChatRoom;
@@ -31,11 +26,10 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = API.graphql(graphqlOperation(onCreateMessage));
+    this.subscription = this.messageService.subscribeOnCreateMessage();
     this.subscription.subscribe({
       next: (data) => {
         const newMessage = data.value.data.onCreateMessage;
-        console.log(newMessage);
         if (newMessage.chatRoom.id !== this.chatRoom.id) {
           return;
         }
@@ -46,11 +40,12 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.fetchMessages();
+   this.fetchMessages();
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // tslint:disable-next-line:no-unused-expression
+    this.subscription.unsubscribe;
   }
 
   sendMessage(): void {
@@ -62,8 +57,7 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy {
 
   private updateChatRoomLastMessage(): void {
     this.chatRoomService.updateChatRoomLastMessage(
-      this.chatRoom.id, this.lastMessageInQueue.id).then(() => {
-    });
+      this.chatRoom.id, this.lastMessageInQueue.id).then(() => {});
   }
 
   fetchMessages(): void {
@@ -74,6 +68,6 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy {
 
   getTitle(): string {
     return this.chatRoom.chatRoomUsers.items.find(
-      u => u.user.id !== this.currentUserId).user.name;
+      u => u.user?.id !== this.currentUserId).user?.name;
   }
 }

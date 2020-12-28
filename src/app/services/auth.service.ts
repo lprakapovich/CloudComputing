@@ -1,19 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Auth } from 'aws-amplify';
+import {Injectable} from '@angular/core';
+import {API, Auth, graphqlOperation} from 'aws-amplify';
 
-import {
-  API,
-  graphqlOperation
-} from 'aws-amplify';
-
-import { getUser } from '../../graphql/queries';
-import { createUser } from '../../graphql/mutations';
+import {getUser} from '../../graphql/queries';
+import {createUser} from '../../graphql/mutations';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // bypassCache ensures user info is taken directly from the server, rather than from cache
+
   async isAuthenticated(): Promise<any> {
     const isAuth = await Auth.currentAuthenticatedUser({bypassCache: true});
 
@@ -41,6 +36,8 @@ export class AuthService {
   }
 
   async signOut(): Promise<void> {
-     await Auth.signOut({global: true});
+    await Auth.signOut({global: true})
+      .then(() =>
+        localStorage.setItem('userId', null));
   }
 }

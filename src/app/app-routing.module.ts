@@ -1,14 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ChatroomComponent} from './components/chats/chatroom/chatroom.component';
 import {UserProfileComponent} from './components/user-profile/user-profile.component';
 import {ChatSpaceComponent} from './components/chats/chat-space/chat-space.component';
+import {SettingsComponent} from './components/settings/settings.component';
 
 const routes: Routes = [
-  // { path: 'chat-space', component: ChatSpaceComponent},
-  // { path: 'user-profile', component: UserProfileComponent },
-  // { path: 'user-settings', component: ChatSpaceComponent },
-  // { path: 'chatroom', component: ChatroomComponent },
+  { path: 'chat-space', component: ChatSpaceComponent},
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'user-settings', component: SettingsComponent },
   { path: '', redirectTo: 'chat-space', pathMatch: 'full'},
   ];
 

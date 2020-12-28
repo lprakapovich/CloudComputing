@@ -1,10 +1,8 @@
   <div class="chat-space-container">
 
-    <div class="left-section"
-         *ngIf="section === 1; then chatList;">
-    </div>
-    <div class="left-section"
-          *ngIf="section === 2; then contactList">
+    <div class="left-section">
+      <ng-container *ngComponentOutlet="dummyComponent">
+      </ng-container>
     </div>
 
     <div *ngIf="chatRoomToOpen; then chatRoomChosen; else noChatRoomChosen">
@@ -16,19 +14,6 @@
     </ng-template>
 
     <ng-template #noChatRoomChosen>
-      <p> No chat room chosen </p>
+      <p class="right-section"> No chat room chosen </p>
     </ng-template>
-
-    <ng-template #chatList>
-      <app-chat-list (openChatRoomEvent)="openChatRoom($event)"></app-chat-list>
-    </ng-template>
-
-    <ng-template #contactList>
-      <app-user-contact-list (openChatRoomEvent)="openChatRoom($event)"></app-user-contact-list>
-    </ng-template>
-
-    <ng-template #profile>
-      <app-user-profile></app-user-profile>
-    </ng-template>
-
   </div>

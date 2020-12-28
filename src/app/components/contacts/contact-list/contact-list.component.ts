@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../models/User';
 import {ChatRoomService} from '../../../services/chat-room.service';
 import {ChatRoom} from '../../../models/ChatRoom';
-import {Route, Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-contact-list',
@@ -11,11 +11,7 @@ import {Route, Router} from '@angular/router';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-
-  @Output() openChatRoomEvent = new EventEmitter<ChatRoom>();
-
   currentUserId: string;
-
   existingChatRoom: ChatRoom;
   selectedUser: User;
   users: User[];
@@ -30,15 +26,15 @@ export class ContactListComponent implements OnInit {
     this.fetchUsers();
   }
 
-  public onUserSelected(user: User): void {
-    this.selectedUser = user;
-    this.chatRoomExists() ? this.openExistingChatRoom() : this.createNewChatRoom();
-  }
-
   private fetchUsers(): void {
     this.userService.getAllUsers().then(users => {
       this.users = users;
     });
+  }
+
+  public onUserSelected(user: User): void {
+    this.selectedUser = user;
+    this.chatRoomExists() ? this.openExistingChatRoom() : this.createNewChatRoom();
   }
 
   private chatRoomExists(): boolean {
@@ -57,21 +53,24 @@ export class ContactListComponent implements OnInit {
   }
 
   private createNewChatRoom(): void {
-    this.chatRoomService.createChatRoomWith(this.selectedUser).then(chatRoom => {
-
+    this.chatRoomService.createChatRoomWith(this.selectedUser).then(() => {
       /**
        * // TODO: replace with subscriptions
-       * Each time the collection changes, it is fetched from API automatically
        */
+
       this.userService.getAllUsers().then(users => {
         this.users = users;
-        console.log('ChatRoom room was created');
-        console.log(chatRoom);
       });
     });
   }
 
   private openExistingChatRoom(): void {
-    this.openChatRoomEvent.emit(this.existingChatRoom);
+    const extras: NavigationExtras = {
+      queryParams: {
+          section: 'contacts',
+          roomId: this.existingChatRoom.id
+        }
+    };
+    this.router.navigate(['/chat-space'], extras);
   }
 }

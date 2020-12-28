@@ -5,24 +5,19 @@
         <span class="material-icons">account_circle</span>
       </a>
     </li>
-    <li class="nav-item" (click)="changeSection(1)" >
-      <a class="nav-link">
+    <li class="nav-item">
+      <a routerLink="/chat-space" [queryParams]="{section: 'chats'}" class="nav-link">
         <span class="material-icons">sms</span>
       </a>
     </li>
-    <li class="nav-item" (click)="changeSection(2)">
-      <a class="nav-link">
+    <li class="nav-item">
+      <a routerLink="/chat-space" [queryParams]="{section: 'contacts'}" class="nav-link">
         <span class="material-icons">people_alt</span>
       </a>
     </li>
     <li class="nav-item">
       <a routerLink="/user-settings" class="nav-link">
         <span class="material-icons">settings</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="/chatroom" class="nav-link">
-        <span class="material-icons">chat</span>
       </a>
     </li>
     <li class="nav-item">

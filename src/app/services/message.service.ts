@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Message} from '../models/Message';
 import {API, graphqlOperation} from 'aws-amplify';
 import {createMessage} from '../../graphql/mutations';
 import {messagesByChatRoom} from '../../graphql/queries';
+import {onCreateMessage} from '../../graphql/subscriptions';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,11 @@ export class MessageService {
     // @ts-ignore
     return messages.data.messagesByChatRoom.items;
   }
-}
 
+  /**
+   * TODO: research how not to return any, but Observable<object>
+   */
+  subscribeOnCreateMessage(): any {
+    return API.graphql(graphqlOperation(onCreateMessage));
+  }
+}
