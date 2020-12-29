@@ -1,5 +1,5 @@
 .btn-open-chat {
-  color: #7a65fc;
+  color: var(--primary-violet);
   font-size: 3rem;
   border: transparent;
   background-color: transparent;
@@ -10,7 +10,7 @@
   outline:none;
 }
 .btn-open-chat:hover {
-  color: #a798ff;
+  color: var(--primary-violet-hover);
 
 }
 
@@ -21,9 +21,14 @@
   border-radius: 1rem;
   min-height: 3.3rem;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: var(--bg-components-primary-dark-hover);
 }
 
 .list-item-element {

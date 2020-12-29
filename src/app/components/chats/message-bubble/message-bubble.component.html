@@ -1,4 +1,4 @@
-<div class="chat-bubble">
+<div class="chat-bubble" [ngClass]="message.userID === currentUserId ? 'mine' : 'others'">
   <div class="bubble-content">
     {{message.content}}
     </div>

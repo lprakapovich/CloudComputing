@@ -8,10 +8,6 @@ main {
   background: var(--bg-primary);
 }
 
-.nav-item:active {
-  background-color: #deafaf;
-}
-
 .navbar-nav {
   list-style: none;
   padding: 0;
@@ -26,6 +22,7 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
+  cursor: pointer;
 }
 
 .nav-item:last-child {
@@ -33,7 +30,7 @@ main {
 }
 
 .nav-link:hover {
-  color: #7a65fc;
+  color: var(--primary-violet);
 }
 
 .nav-link {
@@ -44,7 +41,6 @@ main {
   text-decoration: none;
 }
 
-/* Small screens */
 @media only screen and (max-width: 600px) {
 
   .navbar {
@@ -67,7 +63,6 @@ main {
 }
 
 
-/* Large screens */
 @media only screen and (min-width: 600px) {
 
   .nav-item:first-child {

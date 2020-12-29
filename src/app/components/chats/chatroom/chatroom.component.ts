@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ChatRoom} from '../../../models/ChatRoom';
 import {MessageService} from '../../../services/message.service';
 import {Message} from '../../../models/Message';
@@ -9,8 +9,9 @@ import {ChatRoomService} from '../../../services/chat-room.service';
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.css'],
 })
-export class ChatroomComponent implements OnInit, OnChanges, OnDestroy {
+export class ChatroomComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
   @Input() chatRoom: ChatRoom;
+  @ViewChild('content') content: ElementRef;
 
   messages: Message[];
   lastMessageInQueue: Message;
@@ -41,6 +42,19 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
    this.fetchMessages();
+  }
+
+  ngAfterViewInit(): void {
+    /**
+     * TODO: fix automatic scrolling
+     */
+    this.scrollToBottom();
+  }
+
+  scrollToBottom = () => {
+    try {
+      this.content.nativeElement.scrollTop = this.content.nativeElement.scrollHeight;
+    } catch (err) {}
   }
 
   ngOnDestroy(): void {

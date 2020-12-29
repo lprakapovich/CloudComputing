@@ -7,7 +7,6 @@
     width: 25rem;
     height: 100vh;
     position: relative;
-    margin: 0 2rem;
   }
 }
 
@@ -17,11 +16,14 @@
   }
 }
 
+.contacts-container {
+  margin: 0 2rem;
+}
+
 .main-container {
   background-color: var(--bg-components-primary);
   color: var(--text-secondary);
 }
-
 
 .contacts-header {
   margin: 2rem 0;
@@ -29,23 +31,11 @@
   flex-direction: row;
 }
 
-.search-group {
-  display: flex;
-  flex-direction: row;
-}
-
-.search-item {
-  width: fit-content;
-}
-#add-contact {
-  margin-left: auto;
-}
-
 .contacts-header span {
   margin-left: auto;
 }
 
-.full-width {
+.search {
   width: 100%;
 }
 
@@ -63,13 +53,34 @@
   overflow-y: auto;
 }
 
+
 ::-webkit-scrollbar {
   width: 8px;
-  background-color: white;
+  background-color: var(--bg-components-primary);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: var(--bg-primary-light);
+  background-color: var(--bg-primary-hover);
+}
+
+::ng-deep mat-form-field {
+  color: var(--text-secondary) !important;
+}
+
+::ng-deep mat-form-field  .mat-form-field-label {
+  color: var(--text-secondary)!important;
+}
+
+::ng-deep mat-form-field .mat-form-field-underline {
+  background-color: var(--text-secondary)!important;
+}
+
+::ng-deep mat-form-field .mat-input-element {
+  caret-color: var(--primary-violet) !important;
+}
+
+::ng-deep mat-form-field .mat-form-field-ripple {
+  background-color: var(--primary-violet) !important;
 }
 

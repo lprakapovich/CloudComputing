@@ -3,8 +3,6 @@
 }
 
 body {
-  background-color: #202120;
-  color: #f0f5f0;
   margin: 0;
   padding: 0;
 }
@@ -14,10 +12,8 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: 0 auto;
-  padding: 0;
   position: relative;
-  box-sizing: border-box;
-  background-color: var(--bg-chatroom-primary);
+  background-color: var(--bg-components-primary-dark);
   color: var(--text-secondary)
 }
 
@@ -28,16 +24,14 @@ body {
 }
 
 .mat-divider {
-  color: var(--text-secondary);
+  border-top-color: var(--bg-chatroom-faded);
+  margin: 1rem 2rem;
 }
+
 .chat-header-item {
   display: flex;
   align-items: center;
   width: 5rem;
-}
-
-.mine {
-  float: right;
 }
 
 .search-button {
@@ -59,18 +53,18 @@ body {
   font-size: 1.5rem;
 }
 
-.chat-content {
-  display: flex;
-  flex-direction: column;
-}
-
 .chat-header-item:last-child {
   margin-left: auto;
 }
 
-.message {
-  padding: 1rem;
-  margin-bottom: 5px;
+.chat-content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.chat-content:hover {
+  overflow-y: auto;
 }
 
 /*.message-sent + .message-sent {*/
@@ -105,16 +99,23 @@ body {
 /*  border-radius: 10px !important;*/
 /*}*/
 
+.chat-footer {
+  height: 7rem;
+  background-color: #deafaf;
+  align-self: flex-end;
+  /*margin: 0 2rem;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*right: 0;*/
+}
+
 #form {
+  margin: 0 2rem;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  border: 1px solid #202120;
-  background-color: #fff;
   border-bottom: none;
-  border-radius: .5rem .5rem 0 0;
-  padding: 0 1rem;
 }
 
 .mat-form-field {
@@ -130,3 +131,4 @@ body {
 .width-100 {
   width: 100%;
 }
+

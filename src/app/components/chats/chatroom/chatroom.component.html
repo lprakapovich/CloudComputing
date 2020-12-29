@@ -6,37 +6,36 @@
       <mat-icon> search </mat-icon>
     </button>
   </div>
+
   <mat-divider></mat-divider>
 
   <div class="chat-content">
-    <div class="chat-content-item"
+    <div #content class="chat-content-item"
          *ngFor="let message of messages">
-      <app-message-bubble [ngClass]="message.userID === currentUserId ? 'mine' : 'others'"
-                          [message]="message">
-      </app-message-bubble>
+      <app-message-bubble [message]="message"></app-message-bubble>
     </div>
   </div>
 
-<!--  <div *ngFor="let message of messages">-->
-<!--    <app-message-bubble [message]="message">-->
-<!--    </app-message-bubble>-->
-<!--  </div>-->
+  <mat-divider></mat-divider>
 
+  <div class="chat-footer">
 
-  <div layout layout-align="center" layout-padding id="form">
-    <div layout="row" class="flex-center">
-      <mat-form-field appearance="legacy" class="width-100">
-        <input matInput type="text" id="message" placeholder="Message" [(ngModel)]="messageContent">
-      </mat-form-field>
-
-      <button
-        mat-raised-button
-        color="primary"
-        id="send"
-        (click)="sendMessage()">
-        Send
-      </button>
-    </div>
   </div>
+
+<!--    <div layout layout-align="center" layout-padding id="form">-->
+<!--      <div layout="row" class="flex-center">-->
+<!--        <mat-form-field appearance="legacy" class="width-100">-->
+<!--          <input matInput type="text" id="message" placeholder="Message" [(ngModel)]="messageContent">-->
+<!--        </mat-form-field>-->
+
+<!--        <button-->
+<!--          mat-raised-button-->
+<!--          color="primary"-->
+<!--          id="send"-->
+<!--          (click)="sendMessage()">-->
+<!--          Send-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
 
 </div>

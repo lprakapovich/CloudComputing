@@ -2,27 +2,28 @@
   <div class="contacts-container">
 
     <div class="contacts-header">
-      <h2> Contacts </h2>
+      <h2> People meet in the cloud. </h2>
+      <span class="material-icons"> filter_drama </span>
     </div>
 
-<!--    <form class="example-form">-->
-<!--      <mat-form-field class="full-width">-->
-<!--        <mat-label>Find a user</mat-label>-->
-<!--        <label>-->
-<!--          <input matInput placeholder="Jan Kowalski">-->
-<!--        </label>-->
-<!--      </mat-form-field>-->
-<!--    </form>-->
+<!--      <form>-->
+<!--        <mat-form-field class="search">-->
+<!--          <mat-label>Find a user</mat-label>-->
+<!--          <label>-->
+<!--            <input matInput placeholder="Jan Kowalski">-->
+<!--          </label>-->
+<!--        </mat-form-field>-->
+<!--      </form>-->
 
     <div class="contact-list">
-      <div *ngFor="let user of [1, 1,2,2,2,2,2,2,2,2,2]">
-        <app-contact-list-item [user]="user"
+      <div *ngFor="let user of users">
+        <app-contact-list-item class="contact-list-item"
+                               [user]="user"
                                (click)="onUserSelected(user)">
         </app-contact-list-item>
       </div>
   </div>
 </div>
-
 </div>
 
 
