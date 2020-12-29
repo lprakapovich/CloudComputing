@@ -9,8 +9,8 @@
 
   <mat-divider></mat-divider>
 
-  <div class="chat-content">
-    <div #content class="chat-content-item"
+  <div class="chat-content" (scroll)="scrolled($event) " #scrollFrame>
+    <div class="chat-content-item" #message
          *ngFor="let message of messages">
       <app-message-bubble [message]="message"></app-message-bubble>
     </div>
@@ -19,23 +19,22 @@
   <mat-divider></mat-divider>
 
   <div class="chat-footer">
+    <div class="chat-footer-item input">
+      <input type="text" class="input-form full-width" placeholder="Type a message..." [(ngModel)]="messageContent">
+    </div>
 
+    <div class="chat-footer-item">
+      <button class="attach-button" (click)="attachFile()">
+        <span class="material-icons attach-icon"> attach_file </span>
+      </button>
+    </div>
+
+    <div class="chat-footer-item">
+      <button class="send-button" mat-raised-button color="primary" (click)="sendMessage()"> Send </button>
+<!--      <button>-->
+<!--        <span class="material-icons send-button"> send </span>-->
+<!--      </button>-->
+    </div>
   </div>
-
-<!--    <div layout layout-align="center" layout-padding id="form">-->
-<!--      <div layout="row" class="flex-center">-->
-<!--        <mat-form-field appearance="legacy" class="width-100">-->
-<!--          <input matInput type="text" id="message" placeholder="Message" [(ngModel)]="messageContent">-->
-<!--        </mat-form-field>-->
-
-<!--        <button-->
-<!--          mat-raised-button-->
-<!--          color="primary"-->
-<!--          id="send"-->
-<!--          (click)="sendMessage()">-->
-<!--          Send-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </div>-->
 
 </div>

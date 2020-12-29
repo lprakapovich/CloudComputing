@@ -10,7 +10,7 @@ body {
   --text-primary: #dfdff5;
   --text-secondary: #eeeeee;
   --bg-primary: #3b464f;
-  --bg-primary-light: #434b54;
+  --bg-primary-light: #414851;
 
   --bg-secondary: #36404a;
   --bg-secondary-darken: #313a43;
@@ -22,7 +22,7 @@ body {
   --bg-components-primary-dark-hover: #242c34;
 
   --bg-chatroom-primary: #293640;
-  --bg-chatroom-faded: #404e58;
+  --bg-chatroom-faded: #313d45;
 
   --primary-violet: #7269ef;
   --primary-violet-hover: #5a5ed6;

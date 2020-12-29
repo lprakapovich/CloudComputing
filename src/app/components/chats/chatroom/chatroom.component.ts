@@ -1,4 +1,15 @@
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit, QueryList,
+  SimpleChanges,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {ChatRoom} from '../../../models/ChatRoom';
 import {MessageService} from '../../../services/message.service';
 import {Message} from '../../../models/Message';
@@ -11,7 +22,11 @@ import {ChatRoomService} from '../../../services/chat-room.service';
 })
 export class ChatroomComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
   @Input() chatRoom: ChatRoom;
-  @ViewChild('content') content: ElementRef;
+  @ViewChild('scrollFrame', {static: false}) scrollFrame: ElementRef;
+  @ViewChildren('message') messageElements: QueryList<any>;
+
+  scrollContainer: any;
+  isNearBottom: boolean;
 
   messages: Message[];
   lastMessageInQueue: Message;
@@ -45,16 +60,8 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy, AfterVie
   }
 
   ngAfterViewInit(): void {
-    /**
-     * TODO: fix automatic scrolling
-     */
-    this.scrollToBottom();
-  }
-
-  scrollToBottom = () => {
-    try {
-      this.content.nativeElement.scrollTop = this.content.nativeElement.scrollHeight;
-    } catch (err) {}
+    this.scrollContainer = this.scrollFrame.nativeElement;
+    this.messageElements.changes.subscribe(_ => this.onMessageElementChanged());
   }
 
   ngOnDestroy(): void {
@@ -62,16 +69,53 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy, AfterVie
     this.subscription.unsubscribe;
   }
 
+  onMessageElementChanged(): void {
+    if (this.isUserNearBottom()) {
+      this.scrollToBottom();
+    }
+  }
+
+  scrollToBottom(): void {
+    this.scrollContainer.scroll({
+      top: this.scrollContainer.scrollHeight,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  scrolled(event: any): void {
+    this.isNearBottom = this.isUserNearBottom();
+    console.log(this.isNearBottom);
+  }
+
+  isUserNearBottom(): boolean {
+    const threshold = 150;
+    const position = this.scrollContainer.scrollTop + this.scrollContainer.offsetHeight;
+    const height = this.scrollContainer.scrollHeight;
+    return position > height - threshold;
+  }
+
   sendMessage(): void {
+    if (this.nonEmpty()) {
       this.messageService.sendMessage(this.chatRoom.id, this.messageContent).then((message) => {
         this.lastMessageInQueue = message;
         this.updateChatRoomLastMessage();
-    });
+        this.resetInputForm();
+      });
+    }
   }
 
   private updateChatRoomLastMessage(): void {
     this.chatRoomService.updateChatRoomLastMessage(
       this.chatRoom.id, this.lastMessageInQueue.id).then(() => {});
+  }
+
+  private nonEmpty(): boolean {
+    return this.messageContent.length > 0;
+  }
+
+  private resetInputForm(): void {
+    this.messageContent = '';
   }
 
   fetchMessages(): void {
@@ -83,5 +127,9 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy, AfterVie
   getTitle(): string {
     return this.chatRoom.chatRoomUsers.items.find(
       u => u.user?.id !== this.currentUserId).user?.name;
+  }
+
+  attachFile(): void {
+
   }
 }

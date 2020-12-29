@@ -15,7 +15,8 @@
 }
 
 .mine {
-  background-color: var(--bg-components-primary-dark-hover) ;
+  /*background-color: var(--bg-components-primary-dark-hover) ;*/
+  background-color: var(--bg-primary-light);
   float: right;
 }
 
