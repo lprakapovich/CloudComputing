@@ -15,14 +15,33 @@
 <!--        </mat-form-field>-->
 <!--      </form>-->
 
-    <div class="contact-list">
-      <div *ngFor="let user of users">
-        <app-contact-list-item class="contact-list-item"
-                               [user]="user"
-                               (click)="onUserSelected(user)">
-        </app-contact-list-item>
+
+<!--    <div class="contact-list">-->
+<!--      <div *ngFor="let user of users">-->
+<!--        <app-contact-list-item class="contact-list-item"-->
+<!--                               [user]="user"-->
+<!--                               (click)="onUserSelected(user)">-->
+<!--        </app-contact-list-item>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div *ngIf="users; then userList; else noUserList"></div>
+
+    <ng-template #userList>
+      <div class="contact-list">
+        <div *ngFor="let user of users">
+          <app-contact-list-item class="contact-list-item"
+                                 [user]="user"
+                                 (click)="onUserSelected(user)">
+          </app-contact-list-item>
+        </div>
       </div>
-  </div>
+    </ng-template>
+
+    <ng-template #noUserList>
+      <p> No users found </p>
+    </ng-template>
+
 </div>
 </div>
 

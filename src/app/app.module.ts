@@ -30,6 +30,7 @@ import {MAT_RIPPLE_GLOBAL_OPTIONS, MatNativeDateModule} from '@angular/material/
 import {FilterPipe} from './directives/filter.pipe';
 import {ChatSpaceComponent} from './components/chats/chat-space/chat-space.component';
 import {MessageBubbleComponent} from './components/chats/message-bubble/message-bubble.component';
+import { NoChatroomComponent } from './components/common/no-chatroom/no-chatroom.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +46,8 @@ import {MessageBubbleComponent} from './components/chats/message-bubble/message-
         FilterPipe,
         ChatSpaceComponent,
         MessageBubbleComponent,
-        MessageBubbleComponent
+        MessageBubbleComponent,
+        NoChatroomComponent
     ],
   imports: [
     BrowserModule,

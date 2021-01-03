@@ -27,10 +27,17 @@ export class ChatListComponent implements OnInit, OnDestroy {
     this.fetchChatRooms();
   }
 
-  fetchChatRooms(): void {
+  private fetchChatRooms(): void {
     this.chatRoomService.getCurrentUserChatRooms().then(chatRooms => {
       this.chatRooms = chatRooms;
+      this.openFirstChatInQueue();
     });
+  }
+
+  private openFirstChatInQueue(): void {
+    if (this.chatRooms[0]) {
+      this.openChatRoom(this.chatRooms[0]);
+    }
   }
 
   ngOnDestroy(): void {

@@ -12,6 +12,7 @@ export class AuthService {
   async isAuthenticated(): Promise<any> {
     const isAuth = await Auth.currentAuthenticatedUser({bypassCache: true});
 
+    console.log(isAuth);
     localStorage.setItem('userId', isAuth.attributes.sub);
 
     const userData = await API.graphql(
@@ -31,7 +32,6 @@ export class AuthService {
         { input: user
         }));
     }
-
     return isAuth;
   }
 

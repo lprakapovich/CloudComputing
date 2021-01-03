@@ -15,7 +15,7 @@
 }
 
 .list-item {
-  background-color: var(--bg-components-primary-dark);
+  background-color: var(--bg-chatroom-primary);
   color: #f0eff5;
   font-size: 1rem;
   border-radius: 1rem;
@@ -28,7 +28,7 @@
 }
 
 .list-item:hover {
-  background-color: var(--bg-components-primary-dark-hover);
+  background-color: var(--bg-components-primary-hover);
 }
 
 .list-item-element {

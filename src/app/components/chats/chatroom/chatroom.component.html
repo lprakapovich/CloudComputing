@@ -16,25 +16,42 @@
     </div>
   </div>
 
+<!--  <div *ngIf="messages.length > 0; then hasMessages; else noMessages"></div>-->
+
+<!--  <ng-template #hasMessages>-->
+
+<!--    <div class="chat-content" (scroll)="scrolled($event) " #scrollFrame>-->
+<!--      <div class="chat-content-item" #message-->
+<!--           *ngFor="let message of messages">-->
+<!--        <app-message-bubble [message]="message"></app-message-bubble>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+<!--  <ng-template #noMessages>-->
+<!--    <div class="chat-content">-->
+<!--      <p> No messages yet </p>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
   <mat-divider></mat-divider>
 
   <div class="chat-footer">
     <div class="chat-footer-item input">
-      <input type="text" class="input-form full-width" placeholder="Type a message..." [(ngModel)]="messageContent">
+      <input type="text" class="input-form full-width" placeholder="Enter a message..."
+             [(ngModel)]="messageContent" (keyup.enter)="sendMessage()">
     </div>
 
     <div class="chat-footer-item">
-      <button class="attach-button" (click)="attachFile()">
+      <button class="attach-button" (click)="scrollToBottom()">
         <span class="material-icons attach-icon"> attach_file </span>
       </button>
     </div>
 
     <div class="chat-footer-item">
-      <button class="send-button" mat-raised-button color="primary" (click)="sendMessage()"> Send </button>
-<!--      <button>-->
-<!--        <span class="material-icons send-button"> send </span>-->
-<!--      </button>-->
+      <button class="send-button" (click)="sendMessage()">
+        <span class="material-icons"> send </span>
+      </button>
     </div>
   </div>
-
 </div>

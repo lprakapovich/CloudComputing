@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'chat-space', component: ChatSpaceComponent},
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'user-settings', component: SettingsComponent },
-  { path: '', redirectTo: 'chat-space', pathMatch: 'full'},
+  { path: '', redirectTo: 'chat-space', data: { section: 'chats' }, pathMatch: 'full'},
   ];
 
 @NgModule({

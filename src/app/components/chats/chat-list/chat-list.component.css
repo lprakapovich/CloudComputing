@@ -7,6 +7,7 @@
   .chats-container {
     width: 25rem;
     position: relative;
+    margin: 0 2rem;
   }
 }
 
@@ -17,6 +18,7 @@
 }
 
 .chats-header {
+  margin: 2rem 0;
   display: flex;
   flex-direction: row;
 }
@@ -32,7 +34,8 @@
 .main-container {
   display: flex;
   flex-direction: row;
-  color: var(--bg-secondary);
+  color: var(--text-primary);
+  background-color: var(--bg-components-primary);
 }
 
 .buttonReset {

@@ -11,7 +11,7 @@
 
 .bubble-content {
   width: inherit;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .mine {

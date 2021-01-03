@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@500&family=Josefin+Sans&display=swap');
-
 html, body { height: 100%; }
 
 body {
@@ -7,26 +5,25 @@ body {
   height: auto;
   margin: 0;
   padding: 0;
-  --text-primary: #dfdff5;
-  --text-secondary: #eeeeee;
+
+  --text-primary: #eeeeee;
+  --text-secondary: #dfdff5;
+  --text-gray: #5b6167;
+
   --bg-primary: #3b464f;
   --bg-primary-light: #414851;
 
   --bg-secondary: #36404a;
-  --bg-secondary-darken: #313a43;
-
-  --bg-primary-hover: #738292;
 
   --bg-components-primary: #303841;
-  --bg-components-primary-dark: #29323b;
-  --bg-components-primary-dark-hover: #242c34;
+  --bg-components-primary-hover: #242c34;
+  --bg-components-light: #738292;
 
-  --bg-chatroom-primary: #293640;
+  --bg-chatroom-primary: #282f37;
   --bg-chatroom-faded: #313d45;
 
   --primary-violet: #7269ef;
   --primary-violet-hover: #5a5ed6;
 }
 
-html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,22 +1,44 @@
-.messageText {
-  font-size: 12px;
-  position: absolute;
-  bottom: 0.1rem;
-}
-
-.personText {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.listItem {
+.chat-list-item {
   height: 70px;
   position:relative;
-  background: #f0eff5;
-  color: #2f2f3c;
+  background: var(--bg-chatroom-primary);
+  color: #d1d1d6;
   border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-self: baseline;
   padding-bottom: 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.chat-list-item:hover {
+  background-color: var(--bg-components-primary-hover);
+}
+
+.chat-list-item-element {
+  padding: 1rem;
+}
+
+.chat-list-item-element:first-child {
+  flex: 5;
+}
+
+.chat-list-item-element:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  flex:1;
+  color: var(--primary-violet);
+}
+
+.message {
+  font-size: 12px;
+  position: absolute;
+  color: var(--text-gray);
+}
+
+.person {
+  font-size: 16px;
 }

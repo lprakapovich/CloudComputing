@@ -70,9 +70,9 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy, AfterVie
   }
 
   onMessageElementChanged(): void {
-    if (this.isUserNearBottom()) {
+     if (this.isUserNearBottom()) {
       this.scrollToBottom();
-    }
+     }
   }
 
   scrollToBottom(): void {
@@ -85,7 +85,6 @@ export class ChatroomComponent implements OnInit, OnChanges, OnDestroy, AfterVie
 
   scrolled(event: any): void {
     this.isNearBottom = this.isUserNearBottom();
-    console.log(this.isNearBottom);
   }
 
   isUserNearBottom(): boolean {

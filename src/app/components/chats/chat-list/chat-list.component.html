@@ -5,34 +5,52 @@
       <h2>Conversations </h2>
     </div>
 
-    <form class="chats-form">
-      <mat-form-field class="datePicker">
-        <mat-label>Select time period</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input #fromInput matStartDate matInput placeholder="From">
-          <input #toInput matEndDate matInput placeholder="To">
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker [startAt]="startDate"></mat-date-range-picker>
-      </mat-form-field>
-    </form>
+<!--    <form class="chats-form">-->
+<!--      <mat-form-field class="datePicker">-->
+<!--        <mat-label>Select time period</mat-label>-->
+<!--        <mat-date-range-input [rangePicker]="picker">-->
+<!--          <input #fromInput matStartDate matInput placeholder="From">-->
+<!--          <input #toInput matEndDate matInput placeholder="To">-->
+<!--        </mat-date-range-input>-->
+<!--        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--        <mat-date-range-picker #picker [startAt]="startDate"></mat-date-range-picker>-->
+<!--      </mat-form-field>-->
+<!--    </form>-->
 
-    <div class="buttonGroup">
-      <button class="buttonSet" mat-raised-button (click)="setDatesAsSelected(fromInput, toInput)">Filter</button>
-      <div class="buttonDivider"></div>
-      <button class="buttonReset" mat-raised-button (click)="resetDates(fromInput, toInput)">Reset</button>
-    </div>
+<!--    <div class="buttonGroup">-->
+<!--      <button class="buttonSet" mat-raised-button (click)="setDatesAsSelected(fromInput, toInput)">Filter</button>-->
+<!--      <div class="buttonDivider"></div>-->
+<!--      <button class="buttonReset" mat-raised-button (click)="resetDates(fromInput, toInput)">Reset</button>-->
+<!--    </div>-->
 
-    <div class="divider"></div>
 
-    <div class="chat-list" *ngIf="chatRooms">
-      <mat-nav-list *ngFor="let chatRoom of chatRooms">
 
-        <app-chat-list-item (click)="openChatRoom(chatRoom)"
-                            [chatRoom]="chatRoom"></app-chat-list-item>
-      </mat-nav-list>
-    </div>
 
+<!--    <div *ngIf="chatRooms" class="chat-list" >-->
+<!--      <div *ngFor="let chatRoom of chatRooms">-->
+
+<!--        <app-chat-list-item (click)="openChatRoom(chatRoom)"-->
+<!--                            [chatRoom]="chatRoom"></app-chat-list-item>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div *ngIf="chatRooms.length > 0; then chatList; else emptyChatList"></div>
+
+    <ng-template #chatList>
+      <div class="chat-list" >
+        <div *ngFor="let chatRoom of chatRooms">
+
+          <app-chat-list-item (click)="openChatRoom(chatRoom)"
+                              [chatRoom]="chatRoom"></app-chat-list-item>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #emptyChatList>
+      <p> No chat room  </p>
+    </ng-template>
+
+    <!-- TODO: make a component to be displayed if no chat rooms exist so far, redirecting to contact list -->
   </div>
 </div>
 

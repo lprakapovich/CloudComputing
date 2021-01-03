@@ -22,7 +22,7 @@
 
 .main-container {
   background-color: var(--bg-components-primary);
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .contacts-header {
@@ -60,19 +60,19 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: var(--bg-primary-hover);
+  background-color: var(--bg-components-light);
 }
 
 ::ng-deep mat-form-field {
-  color: var(--text-secondary) !important;
+  color: var(--text-primary) !important;
 }
 
 ::ng-deep mat-form-field  .mat-form-field-label {
-  color: var(--text-secondary)!important;
+  color: var(--text-primary)!important;
 }
 
 ::ng-deep mat-form-field .mat-form-field-underline {
-  background-color: var(--text-secondary)!important;
+  background-color: var(--text-primary)!important;
 }
 
 ::ng-deep mat-form-field .mat-input-element {

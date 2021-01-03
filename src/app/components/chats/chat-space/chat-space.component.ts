@@ -22,9 +22,9 @@ export class ChatSpaceComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-
-      params.roomId ? this.getChatRoom(params.roomId) : console.log('roomId not received');
-
+      if (params.roomId) {
+        this.getChatRoom(params.roomId);
+      }
       params.section === 'chats' ?
         this.dummyComponent = ChatListComponent
         : this.dummyComponent = ContactListComponent;

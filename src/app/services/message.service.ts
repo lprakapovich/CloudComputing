@@ -40,6 +40,8 @@ export class MessageService {
   /**
    * TODO: research how not to return any, but Observable<object>
    */
+
+
   subscribeOnCreateMessage(): any {
     return API.graphql(graphqlOperation(onCreateMessage));
   }
