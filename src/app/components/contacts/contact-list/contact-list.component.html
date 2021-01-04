@@ -2,28 +2,27 @@
   <div class="contacts-container">
 
     <div class="contacts-header">
-      <h2> People meet in the cloud. </h2>
-      <span class="material-icons"> filter_drama </span>
+      <h2> Cloud usersF </h2>
     </div>
 
-<!--      <form>-->
-<!--        <mat-form-field class="search">-->
-<!--          <mat-label>Find a user</mat-label>-->
-<!--          <label>-->
-<!--            <input matInput placeholder="Jan Kowalski">-->
-<!--          </label>-->
-<!--        </mat-form-field>-->
-<!--      </form>-->
+      <form>
+        <mat-form-field class="search">
+          <mat-label>Find a user</mat-label>
+          <label>
+            <input matInput placeholder="Jan Kowalski">
+          </label>
+        </mat-form-field>
+      </form>
 
 
-<!--    <div class="contact-list">-->
-<!--      <div *ngFor="let user of users">-->
-<!--        <app-contact-list-item class="contact-list-item"-->
-<!--                               [user]="user"-->
-<!--                               (click)="onUserSelected(user)">-->
-<!--        </app-contact-list-item>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="contact-list">
+      <div *ngFor="let user of users">
+        <app-contact-list-item class="contact-list-item"
+                               [user]="user"
+                               (click)="onUserSelected(user)">
+        </app-contact-list-item>
+      </div>
+    </div>
 
     <div *ngIf="users; then userList; else noUserList"></div>
 

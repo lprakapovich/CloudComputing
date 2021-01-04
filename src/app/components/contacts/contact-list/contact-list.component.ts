@@ -53,14 +53,9 @@ export class ContactListComponent implements OnInit {
   }
 
   private createNewChatRoom(): void {
-    this.chatRoomService.createChatRoomWith(this.selectedUser).then(() => {
-      /**
-       * // TODO: replace with subscriptions
-       */
-
-      this.userService.getAllUsers().then(users => {
-        this.users = users;
-      });
+    this.chatRoomService.createChatRoomWith(this.selectedUser).then((created) => {
+      this.existingChatRoom = created;
+      this.openExistingChatRoom();
     });
   }
 

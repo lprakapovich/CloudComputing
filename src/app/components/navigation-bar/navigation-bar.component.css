@@ -25,11 +25,19 @@ main {
   cursor: pointer;
 }
 
+.top-item {
+  cursor: auto;
+}
+
+.nav-item:first-child {
+  margin-bottom: auto;
+}
+
 .nav-item:last-child {
   margin-top: auto;
 }
 
-.nav-link:hover {
+.nav-link :not(.top-item):hover {
   color: var(--primary-violet);
 }
 
@@ -64,10 +72,6 @@ main {
 
 
 @media only screen and (min-width: 600px) {
-
-  .nav-item:first-child {
-    margin-top: 3rem;
-  }
 
   .navbar {
     top: 0;
