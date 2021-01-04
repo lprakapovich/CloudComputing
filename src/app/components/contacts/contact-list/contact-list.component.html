@@ -2,18 +2,24 @@
   <div class="contacts-container">
 
     <div class="contacts-header">
-      <h2> Cloud usersF </h2>
+      <h2> Cloud users </h2>
     </div>
 
-      <form>
-        <mat-form-field class="search">
-          <mat-label>Find a user</mat-label>
-          <label>
-            <input matInput placeholder="Jan Kowalski">
-          </label>
-        </mat-form-field>
-      </form>
+    <form>
+      <div class="search">
+        <input type="text" class="input-form" placeholder="Find a user...">
+      </div>
+    </form>
 
+
+<!--    <form>-->
+<!--      <mat-form-field class="search">-->
+<!--        <mat-label>Find a user</mat-label>-->
+<!--        <label>-->
+<!--          <input matInput placeholder="Jan Kowalski">-->
+<!--        </label>-->
+<!--      </mat-form-field>-->
+<!--    </form>-->
 
     <div class="contact-list">
       <div *ngFor="let user of users">
