@@ -9,10 +9,12 @@ import {User} from '../../models/User';
 export class SettingsComponent implements OnInit {
 
   currentUser: User;
+  usernameCopy: string;
   constructor() { }
 
   ngOnInit(): void {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.usernameCopy = this.currentUser.name;
     console.log('Current user: ', this.currentUser);
   }
 

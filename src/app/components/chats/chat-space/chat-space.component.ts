@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ContactListComponent} from '../../contacts/contact-list/contact-list.component';
 import {ChatListComponent} from '../chat-list/chat-list.component';
 import {ChatRoomService} from '../../../services/chat-room.service';
+import {SettingsComponent} from '../../settings/settings.component';
 
 @Component({
   selector: 'app-chat-space',
@@ -27,7 +28,11 @@ export class ChatSpaceComponent implements OnInit {
       }
       params.section === 'chats' ?
         this.dummyComponent = ChatListComponent
-        : this.dummyComponent = ContactListComponent;
+        :
+        params.section === 'user-settings' ?
+          this.dummyComponent = SettingsComponent
+          :
+          this.dummyComponent = ContactListComponent;
     });
   }
 

@@ -5,7 +5,6 @@
 
   .contacts-container {
     width: 25rem;
-    height: 100vh;
     position: relative;
   }
 }
@@ -23,6 +22,7 @@
 .main-container {
   background-color: var(--bg-components-primary);
   color: var(--text-primary);
+  height: 100vh;
 }
 
 .contacts-header {

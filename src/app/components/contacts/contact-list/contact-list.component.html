@@ -11,16 +11,6 @@
       </div>
     </form>
 
-
-<!--    <form>-->
-<!--      <mat-form-field class="search">-->
-<!--        <mat-label>Find a user</mat-label>-->
-<!--        <label>-->
-<!--          <input matInput placeholder="Jan Kowalski">-->
-<!--        </label>-->
-<!--      </mat-form-field>-->
-<!--    </form>-->
-
     <div *ngIf="users; then userList; else noUserList"></div>
 
     <ng-template #userList>

@@ -1,5 +1,9 @@
 <div class="settings-container">
-  <h2> Settings </h2>
+  <div id="settings-header">
+    <h2>
+      Settings
+    </h2>
+  </div>
   <div id="settings-image">
     <div class="image">
       <img class="avatar"
@@ -9,15 +13,28 @@
       </button>
     </div>
   </div>
-  <div id="settings-header"> {{currentUser.name}}</div>
+  <div id="settings-username"> {{usernameCopy}}</div>
 
   <div id="settings-content">
     <div class="editable">
-      <p> Name: </p>
-      <p> {{currentUser.name}}</p>
 
-      <p> Email: </p>
-      <p> {{currentUser.name}}</p>
+      <div class="editable-item">
+        <div class="label"> Name: </div>
+          <div class="editable-area">
+            <input type="text" class="input-form" [(ngModel)]="currentUser.name">
+          </div>
+      </div>
+
+      <div class="editable-item">
+        <div class="label"> Email: </div>
+          <div class="editable-area">
+            <input type="text" class="input-form" [(ngModel)]="currentUser.email">
+          </div>
+      </div>
+
+      <div class="button-container">
+        <button class="save-button"> Save </button>
+      </div>
     </div>
   </div>
 </div>

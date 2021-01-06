@@ -28,6 +28,7 @@ export class ContactListComponent implements OnInit {
 
   private fetchUsers(): void {
     this.userService.getAllUsers().then(users => {
+      console.log(users);
       this.users = users;
     });
   }

@@ -7,6 +7,7 @@ export const onCreateUser = /* GraphQL */ `
     onCreateUser {
       id
       name
+      email
       imageUri
       status
       chatRoomUser {
@@ -29,6 +30,7 @@ export const onUpdateUser = /* GraphQL */ `
     onUpdateUser {
       id
       name
+      email
       imageUri
       status
       chatRoomUser {
@@ -51,6 +53,7 @@ export const onDeleteUser = /* GraphQL */ `
     onDeleteUser {
       id
       name
+      email
       imageUri
       status
       chatRoomUser {
@@ -103,6 +106,7 @@ export const onCreateChatRoom = /* GraphQL */ `
         user {
           id
           name
+          email
           imageUri
           status
           createdAt
@@ -156,6 +160,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
         user {
           id
           name
+          email
           imageUri
           status
           createdAt
@@ -209,6 +214,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
         user {
           id
           name
+          email
           imageUri
           status
           createdAt
@@ -236,6 +242,7 @@ export const onCreateChatRoomUser = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -278,6 +285,7 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -320,6 +328,7 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -364,6 +373,7 @@ export const onCreateMessage = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -407,6 +417,7 @@ export const onUpdateMessage = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -450,6 +461,7 @@ export const onDeleteMessage = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {

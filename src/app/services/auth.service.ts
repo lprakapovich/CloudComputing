@@ -12,7 +12,6 @@ export class AuthService {
   async isAuthenticated(): Promise<any> {
     const isAuth = await Auth.currentAuthenticatedUser({bypassCache: true});
 
-    console.log(isAuth);
     localStorage.setItem('userId', isAuth.attributes.sub);
 
     const userData = await API.graphql(
@@ -22,10 +21,14 @@ export class AuthService {
 
     // @ts-ignore
     const currentUser = userData.data.getUser;
+
+    console.log(currentUser);
+
     if (!currentUser) {
       const user = {
         id: isAuth.attributes.sub,
-        name: isAuth.username
+        name: isAuth.username,
+        email: isAuth.attributes.email
       };
       await API.graphql(
         graphqlOperation(
@@ -40,7 +43,9 @@ export class AuthService {
 
   async signOut(): Promise<void> {
     await Auth.signOut({global: true})
-      .then(() =>
-        localStorage.setItem('userId', null));
+      .then(() => {
+        localStorage.setItem('userId', null);
+        localStorage.setItem('currentUser', null);
+        });
   }
 }

@@ -10,6 +10,7 @@ export const createUser = /* GraphQL */ `
     createUser(input: $input, condition: $condition) {
       id
       name
+      email
       imageUri
       status
       chatRoomUser {
@@ -35,6 +36,7 @@ export const updateUser = /* GraphQL */ `
     updateUser(input: $input, condition: $condition) {
       id
       name
+      email
       imageUri
       status
       chatRoomUser {
@@ -60,6 +62,7 @@ export const deleteUser = /* GraphQL */ `
     deleteUser(input: $input, condition: $condition) {
       id
       name
+      email
       imageUri
       status
       chatRoomUser {
@@ -115,6 +118,7 @@ export const createChatRoom = /* GraphQL */ `
         user {
           id
           name
+          email
           imageUri
           status
           createdAt
@@ -171,6 +175,7 @@ export const updateChatRoom = /* GraphQL */ `
         user {
           id
           name
+          email
           imageUri
           status
           createdAt
@@ -227,6 +232,7 @@ export const deleteChatRoom = /* GraphQL */ `
         user {
           id
           name
+          email
           imageUri
           status
           createdAt
@@ -257,6 +263,7 @@ export const createChatRoomUser = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -302,6 +309,7 @@ export const updateChatRoomUser = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -347,6 +355,7 @@ export const deleteChatRoomUser = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -394,6 +403,7 @@ export const createMessage = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -440,6 +450,7 @@ export const updateMessage = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -486,6 +497,7 @@ export const deleteMessage = /* GraphQL */ `
       user {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {

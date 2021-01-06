@@ -3,6 +3,7 @@ export const getUser = `
     getUser(id: $id) {
       id
       name
+      email
       imageUri
       status
       chatRoomUser {
@@ -49,6 +50,7 @@ export const listUsers = `
       items {
         id
         name
+        email
         imageUri
         status
         chatRoomUser {
@@ -114,6 +116,7 @@ export const getChatRoom = /* GraphQL */ `
         user {
           id
           name
+          email
           imageUri
           status
           createdAt
