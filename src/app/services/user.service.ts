@@ -26,7 +26,8 @@ export class UserService {
        name: userData.name,
        status: userData.status,
        imageUri: userData.imageUri,
-       chatRoomUser: userData.chatRoomUser
+       chatRoomUser: userData.chatRoomUser,
+       email: userData.email
      };
    }
 
