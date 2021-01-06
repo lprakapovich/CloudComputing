@@ -17,3 +17,53 @@
   background-color: var(--bg-components-primary);
   color: var(--text-primary);
 }
+
+#settings-image {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+#settings-header {
+  display: flex;
+  justify-content: center;
+}
+
+#settings-content {
+  margin: 1rem 0;
+  padding: 1rem;
+  /*background-color: #b5b0d9;*/
+  height: fit-content;
+}
+
+.editable {
+  /*background-color: #5a5ed6;*/
+  height: inherit;
+}
+
+.image {
+  position: relative;
+}
+
+.edit-image-button {
+  position: absolute;
+  top: 7rem;
+  right: 0.1rem;
+  border-radius: 2rem;
+  height: 3rem;
+  width: 3rem;
+  border-color: transparent;
+  background-color: var(--bg-chatroom-primary);
+  color: var(--text-gray);
+  cursor: pointer;
+}
+
+.edit-image-button:hover {
+  background-color: var(--bg-components-primary-hover-dark);
+}
+
+.avatar {
+  border-radius: 5rem;
+  width: 10rem;
+  height: 10rem;
+}

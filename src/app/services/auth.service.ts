@@ -21,7 +21,8 @@ export class AuthService {
       { id: isAuth.attributes.sub}));
 
     // @ts-ignore
-    if (!userData.data.getUser) {
+    const currentUser = userData.data.getUser;
+    if (!currentUser) {
       const user = {
         id: isAuth.attributes.sub,
         name: isAuth.username
@@ -31,6 +32,8 @@ export class AuthService {
           createUser,
         { input: user
         }));
+    } else {
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
     }
     return isAuth;
   }
