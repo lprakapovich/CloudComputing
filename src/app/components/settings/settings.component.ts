@@ -78,6 +78,8 @@ export class SettingsComponent implements OnInit {
       await API.graphql(graphqlOperation(UpdateUser, { input: this.currentUser }));
       console.log('Successfully updated user data!');
 
+      this.updateImage(this.currentUser.imageUri.key);
+
       localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
 
     }
