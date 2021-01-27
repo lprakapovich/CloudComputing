@@ -34,6 +34,8 @@ export class SettingsComponent implements OnInit {
     this.emailCopy = this.currentUser.name;
     console.log('Current user: ', this.currentUser);
     this.updateImage(this.currentUser.imageUri.key);
+    console.log(region)
+    console.log(bucket)
   }
 
   onFileChanged(event) {
