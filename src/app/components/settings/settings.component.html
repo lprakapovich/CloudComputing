@@ -8,8 +8,8 @@
     <div class="image">
       <img id="user-avatar"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sCAvrW1yFi0UYMgTZb113I0SwtW0dpby8Q&usqp=CAU"
-        alt="Avatar" #user-avatar>
-      <button id="edit-image-button" (click)="fileInput.click()" #edit-image-button>
+        alt="Avatar" #userAvatar>
+      <button id="edit-image-button" (click)="fileInput.click()" #editImageButton>
         <span class="material-icons">create</span>
       </button>
       <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />

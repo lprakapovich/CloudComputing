@@ -15,6 +15,7 @@ const {
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
+
 export class SettingsComponent implements OnInit {
 
   currentUser: User;
@@ -22,8 +23,8 @@ export class SettingsComponent implements OnInit {
   emailCopy: string;
   avatarUrl: string;
   private file: File | null = null;
-  @ViewChild('user-avatar') userAvatar: ElementRef;
-  @ViewChild('edit-image-button') imageButton: ElementRef;
+  @ViewChild('userAvatar') userAvatar: ElementRef;
+  @ViewChild('editImageButton') imageButton: ElementRef;
 
   constructor(private renderer: Renderer2) { }
 
