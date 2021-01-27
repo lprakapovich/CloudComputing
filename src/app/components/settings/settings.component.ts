@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { User } from '../../models/User';
-import config from '../../../aws-exports';
+import awsmobile from '../../../aws-exports';
 import { v4 as uuid } from 'uuid';
 import { Storage, API, graphqlOperation } from 'aws-amplify'
 import { updateUser as UpdateUser } from '../../../graphql/mutations'
@@ -8,7 +8,7 @@ import { updateUser as UpdateUser } from '../../../graphql/mutations'
 const {
   aws_user_files_s3_bucket_region: region,
   aws_user_files_s3_bucket: bucket
-} = config
+} = awsmobile
 
 @Component({
   selector: 'app-settings',
