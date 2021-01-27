@@ -29,6 +29,13 @@ export class SettingsComponent implements OnInit {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    Storage.configure({
+      AWSS3: {
+        bucket: bucket,//Your bucket ARN;
+        region: region//Specify the region your bucket was created in;
+      }
+    });
+
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.usernameCopy = this.currentUser.name;
     this.emailCopy = this.currentUser.name;
@@ -77,7 +84,14 @@ export class SettingsComponent implements OnInit {
 
       }
 
-      await API.graphql(graphqlOperation(UpdateUser, { input: this.currentUser }));
+      let userToUpload = {
+        id: this.currentUser.id,
+        name: this.currentUser.name,
+        email: this.currentUser.email,
+        imageUri: this.currentUser.imageUri
+      }
+
+      await API.graphql(graphqlOperation(UpdateUser, { input: userToUpload }));
       console.log('Successfully updated user data!');
 
       this.updateImage(this.currentUser.imageUri.key);
