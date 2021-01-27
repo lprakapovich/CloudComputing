@@ -41,8 +41,6 @@ export class SettingsComponent implements OnInit {
     this.emailCopy = this.currentUser.name;
     console.log('Current user: ', this.currentUser);
     this.updateImage(this.currentUser.imageUri.key);
-    console.log(region)
-    console.log(bucket)
   }
 
   onFileChanged(event) {
@@ -95,6 +93,7 @@ export class SettingsComponent implements OnInit {
       console.log('Successfully updated user data!');
 
       this.updateImage(this.currentUser.imageUri.key);
+      this.renderer.setStyle(this.imageButton.nativeElement, 'backgroundColor', '#282f37');
 
       localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
 
