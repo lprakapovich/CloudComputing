@@ -6,11 +6,12 @@
   </div>
   <div id="settings-image">
     <div class="image">
-      <img class="avatar"
+      <img id="user-avatar"
            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sCAvrW1yFi0UYMgTZb113I0SwtW0dpby8Q&usqp=CAU" alt="Avatar">
-      <button class="edit-image-button" (click)="loadProfileImage()">
+      <button id="edit-image-button" (click)="fileInput.click()">
         <span class="material-icons">create</span>
       </button>
+      <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
     </div>
   </div>
   <div id="settings-username"> {{usernameCopy}}</div>
@@ -33,7 +34,7 @@
       </div>
 
       <div class="button-container">
-        <button class="save-button"> Save </button>
+        <button class="save-button" (click)="updateUser()"> Save </button>
       </div>
     </div>
   </div>

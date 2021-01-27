@@ -107,7 +107,7 @@
   justify-content: center;
 }
 
-.edit-image-button {
+#edit-image-button {
   position: absolute;
   top: 7rem;
   right: 0.1rem;
@@ -124,7 +124,7 @@
   background-color: var(--bg-components-primary-hover-dark);
 }
 
-.avatar {
+#user-avatar {
   border-radius: 5rem;
   width: 10rem;
   height: 10rem;
