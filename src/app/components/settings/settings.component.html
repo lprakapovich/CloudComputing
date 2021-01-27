@@ -7,8 +7,9 @@
   <div id="settings-image">
     <div class="image">
       <img id="user-avatar"
-           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sCAvrW1yFi0UYMgTZb113I0SwtW0dpby8Q&usqp=CAU" alt="Avatar">
-      <button id="edit-image-button" (click)="fileInput.click()">
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sCAvrW1yFi0UYMgTZb113I0SwtW0dpby8Q&usqp=CAU"
+        alt="Avatar" #user-avatar>
+      <button id="edit-image-button" (click)="fileInput.click()" #edit-image-button>
         <span class="material-icons">create</span>
       </button>
       <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
@@ -21,16 +22,16 @@
 
       <div class="editable-item">
         <div class="label"> Name: </div>
-          <div class="editable-area">
-            <input type="text" class="input-form" [(ngModel)]="currentUser.name">
-          </div>
+        <div class="editable-area">
+          <input type="text" class="input-form" [(ngModel)]="currentUser.name">
+        </div>
       </div>
 
       <div class="editable-item">
         <div class="label"> Email: </div>
-          <div class="editable-area">
-            <input type="text" class="input-form" [(ngModel)]="currentUser.email">
-          </div>
+        <div class="editable-area">
+          <input type="text" class="input-form" [(ngModel)]="currentUser.email">
+        </div>
       </div>
 
       <div class="button-container">

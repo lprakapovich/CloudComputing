@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {User} from '../../models/User';
-import config from './aws-exports';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { User } from '../../models/User';
+import config from '../../../aws-exports';
 import { v4 as uuid } from 'uuid';
 import { Storage, API, graphqlOperation } from 'aws-amplify'
-import { updateUser as UpdateUser } from './graphql/mutations'
+import { updateUser as UpdateUser } from '../../../graphql/mutations'
 
 const {
   aws_user_files_s3_bucket_region: region,
@@ -19,50 +19,52 @@ export class SettingsComponent implements OnInit {
 
   currentUser: User;
   usernameCopy: string;
+  emailCopy: string;
   avatarUrl: string;
   private file: File | null = null;
-  constructor() { }
+  @ViewChild('user-avatar') userAvatar: ElementRef;
+  @ViewChild('edit-image-button') imageButton: ElementRef;
+
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.usernameCopy = this.currentUser.name;
     this.emailCopy = this.currentUser.name;
     console.log('Current user: ', this.currentUser);
-    updateImage(this.currentUser.imageUri.key);
+    this.updateImage(this.currentUser.imageUri.key);
   }
 
   onFileChanged(event) {
-    const file = event.target.files[0];
-    const document.getElementById("edit-image-button");
-    document.style["background-color"] = "green";
+    this.file = event.target.files[0];
+    this.renderer.setStyle(this.imageButton.nativeElement, 'backgroundColor', 'green');
   }
 
-  async function updateImage(key) {
+  async updateImage(key) {
     try {
       const imageData = await Storage.get(key)
-      const avatar.getElementById("user-avatar");
-      avatar.src = imageData;
-    } catch(err) {
+      this.userAvatar.nativeElement.src = imageData;
+    } catch (err) {
       console.log('error: ', err)
     }
   }
 
-  async updateUser(): void {
+  async updateUser(): Promise<void> {
     // Maxime's logic
-    if (file || this.currentUser.name != this.usernameCopy || this.currentUser.email != this.emailCopy) {
+    if (this.file || this.currentUser.name != this.usernameCopy || this.currentUser.email != this.emailCopy) {
 
-      if(file) {
-        const { name: fileName, type: mimeType } = file;
+      if (this.file) {
+        const { name: fileName, type: mimeType } = this.file;
         const key = `${uuid()}${fileName}`;
         const fileForUpload = {
-            bucket,
-            key,
-            region,
-        } ;
+          bucket,
+          key,
+          region,
+        };
 
         try {
-          await Storage.put(key, file, {
-            contentType: mimeType;
+          await Storage.put(key, this.file, {
+            contentType: mimeType
           });
           console.log('Successfully uploaded image to S3 bucket!');
           this.currentUser.imageUri = fileForUpload;

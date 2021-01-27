@@ -120,7 +120,7 @@
   cursor: pointer;
 }
 
-.edit-image-button:hover {
+#edit-image-button:hover {
   background-color: var(--bg-components-primary-hover-dark);
 }
 
