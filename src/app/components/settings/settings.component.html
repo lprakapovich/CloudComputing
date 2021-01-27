@@ -12,7 +12,7 @@
       <button id="edit-image-button" (click)="fileInput.click()" #editImageButton>
         <span class="material-icons">create</span>
       </button>
-      <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+      <input #fileInput type="file" (change)="onFileChanged($event)" style="display:none;" />
     </div>
   </div>
   <div id="settings-username"> {{usernameCopy}}</div>
