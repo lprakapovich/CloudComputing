@@ -3,9 +3,15 @@ type User
   id: ID!
   name: String!
   email: String
-  imageUri: String
+  imageUri: S3Object
   status: String
   chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
 }
 
 type ChatRoom

@@ -1,7 +1,13 @@
 import {Injectable} from '@angular/core';
-import {API, graphqlOperation} from 'aws-amplify';
+import {Storage, API, graphqlOperation} from 'aws-amplify';
 import {getUser, listUsers} from '../custom-queries/queries';
 import {User} from '../models/User';
+import config from './aws-exports'
+
+const {
+  aws_user_files_s3_bucket_region: region,
+  aws_user_files_s3_bucket: bucket
+} = config
 
 @Injectable({
   providedIn: 'root'

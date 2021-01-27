@@ -16,5 +16,23 @@
         "cloudchatapp26d2a65b": {}
       }
     }
+  },
+  "avatardev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cloudchatapp-avatardev-212222-authRole",
+      "UnauthRoleArn": "arn:aws:iam::687212803550:role/amplify-cloudchatapp-avatardev-212222-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::687212803550:role/amplify-cloudchatapp-avatardev-212222-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-cloudchatapp-avatardev-212222-deployment",
+      "UnauthRoleName": "amplify-cloudchatapp-avatardev-212222-unauthRole",
+      "StackName": "amplify-cloudchatapp-avatardev-212222",
+      "StackId": "arn:aws:cloudformation:eu-central-1:687212803550:stack/amplify-cloudchatapp-avatardev-212222/334c8f80-6014-11eb-aad5-02f73f116706",
+      "AmplifyAppId": "d1juy73enlkrqc"
+    },
+    "categories": {
+      "auth": {
+        "cloudchatapp26d2a65b": {}
+      }
+    }
   }
 }

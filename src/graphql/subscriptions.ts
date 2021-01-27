@@ -8,7 +8,11 @@ export const onCreateUser = /* GraphQL */ `
       id
       name
       email
-      imageUri
+      imageUri {
+        bucket
+        region
+        key
+      }
       status
       chatRoomUser {
         items {
@@ -31,7 +35,11 @@ export const onUpdateUser = /* GraphQL */ `
       id
       name
       email
-      imageUri
+      imageUri {
+        bucket
+        region
+        key
+      }
       status
       chatRoomUser {
         items {
@@ -54,7 +62,11 @@ export const onDeleteUser = /* GraphQL */ `
       id
       name
       email
-      imageUri
+      imageUri {
+        bucket
+        region
+        key
+      }
       status
       chatRoomUser {
         items {
@@ -107,7 +119,6 @@ export const onCreateChatRoom = /* GraphQL */ `
           id
           name
           email
-          imageUri
           status
           createdAt
           updatedAt
@@ -161,7 +172,6 @@ export const onUpdateChatRoom = /* GraphQL */ `
           id
           name
           email
-          imageUri
           status
           createdAt
           updatedAt
@@ -215,7 +225,6 @@ export const onDeleteChatRoom = /* GraphQL */ `
           id
           name
           email
-          imageUri
           status
           createdAt
           updatedAt
@@ -243,7 +252,11 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -286,7 +299,11 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -329,7 +346,11 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -374,7 +395,11 @@ export const onCreateMessage = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -418,7 +443,11 @@ export const onUpdateMessage = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -462,7 +491,11 @@ export const onDeleteMessage = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken

@@ -8,7 +8,11 @@ export const getUser = /* GraphQL */ `
       id
       name
       email
-      imageUri
+      imageUri {
+        bucket
+        region
+        key
+      }
       status
       chatRoomUser {
         items {
@@ -36,7 +40,11 @@ export const listUsers = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -84,7 +92,6 @@ export const getChatRoom = /* GraphQL */ `
           id
           name
           email
-          imageUri
           status
           createdAt
           updatedAt
@@ -143,7 +150,11 @@ export const getChatRoomUser = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -191,7 +202,6 @@ export const listChatRoomUsers = /* GraphQL */ `
           id
           name
           email
-          imageUri
           status
           createdAt
           updatedAt
@@ -221,7 +231,11 @@ export const getMessage = /* GraphQL */ `
         id
         name
         email
-        imageUri
+        imageUri {
+          bucket
+          region
+          key
+        }
         status
         chatRoomUser {
           nextToken
@@ -270,7 +284,6 @@ export const listMessages = /* GraphQL */ `
           id
           name
           email
-          imageUri
           status
           createdAt
           updatedAt
@@ -314,7 +327,6 @@ export const messagesByChatRoom = /* GraphQL */ `
           id
           name
           email
-          imageUri
           status
           createdAt
           updatedAt
